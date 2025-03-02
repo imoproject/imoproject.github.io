@@ -110,22 +110,236 @@
     margin-top: 30px;
     height: 300px;
   }
+  .imograph {
+    margin-top: 30px;
+    height: 300px;
+  }
   .wrapper {
     width: 70%;
     margin: 50px auto;
   }
-  /* @keyframes rotation {
-    0% {
-      transform: scale(50);
-    }
-    100% {
-      transform: scale(1) rotate(360deg);
-    }
-  } */
 }
 @media screen and (max-width: 640px) {
   /* ここはスマホ用のCSS */
+  .logoname_down {
+    font-family: "Itim", cursive;
+    font-style: italic;
+    font-size: 13px;
+  }
+  .logoname_up {
+    font-family: "Itim", cursive;
+    font-size: 22px;
+  }
+  .logo {
+    height: 40px;
+    /* animation: rotation 3s ease 0s 1 alternate none running; */
+  }
+  .logo_wrapper {
+    display: flex;
+    height: 40px;
+    width: 190px;
+    justify-content: space-between;
+    margin-left: 10px;
+  }
+  .logoname_wrapper {
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .imomark {
+    width: 15px;
+  }
+  .menu {
+    font-size: 20px;
+    transition: all 300ms 0s ease;
+  }
+  .menunewcomerevent {
+    font-size: 15px;
+    transition: all 300ms 0s ease;
+  }
+  .menuquestion {
+    font-size: 15px;
+    transition: all 300ms 0s ease;
+  }
+  .menu:hover {
+    font-size: 23px;
+  }
+  .menunewcomerevent:hover {
+    font-size: 18px;
+  }
+  .menuquestion:hover {
+    font-size: 18px;
+  }
+  .menu_cover {
+    width: 95px;
+    display: flex;
+    justify-content: center;
+  }
+  .menunewcoverevent_cover {
+    width: 180px;
+    display: flex;
+    justify-content: center;
+  }
+  .menuquestion_cover {
+    width: 180px;
+    display: flex;
+    justify-content: center;
+  }
+  .menu_wrapper {
+    display: flex;
+    width: 95%;
+    height: 80px;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px auto 20px auto;
+    background-color: white;
+    border-radius: 20px;
+  }
+  .h1_wrapper {
+    width: fit-content;
+    height: 24px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    margin: 70px 10% 20px 10%;
+    border-bottom: 5px solid #489d51;
+  }
+  .h1logo {
+    width: 30px;
+    margin-right: 12px;
+  }
+  .h1title {
+    font-size: 24px;
+  }
+  .imoexplenation {
+    font-size: 15px;
+    line-height: 30px;
+    margin-top: 10px;
+  }
+  .imopicture {
+    margin-top: 30px;
+    width: 70vw;
+  }
+  .wrapper {
+    width: 70%;
+    margin: 50px auto;
+  }
+  .imograph {
+    margin-top: 30px;
+    width: 70vw;
+  }
 }
 @media screen and (max-width: 960px) and (min-width: 641px) {
   /* ここはタブレット用のCSS */
+  .logoname_down {
+    font-family: "Itim", cursive;
+    font-style: italic;
+    font-size: 13px;
+  }
+  .logoname_up {
+    font-family: "Itim", cursive;
+    font-size: 22px;
+  }
+  .logo {
+    height: 40px;
+    /* animation: rotation 3s ease 0s 1 alternate none running; */
+  }
+  .logo_wrapper {
+    display: flex;
+    height: 40px;
+    width: 190px;
+    justify-content: space-between;
+    margin-left: 10px;
+  }
+  .logoname_wrapper {
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .imomark {
+    width: 15px;
+  }
+  .menu {
+    font-size: 20px;
+    transition: all 300ms 0s ease;
+  }
+  .menunewcomerevent {
+    font-size: 15px;
+    transition: all 300ms 0s ease;
+  }
+  .menuquestion {
+    font-size: 15px;
+    transition: all 300ms 0s ease;
+  }
+  .menu:hover {
+    font-size: 23px;
+  }
+  .menunewcomerevent:hover {
+    font-size: 18px;
+  }
+  .menuquestion:hover {
+    font-size: 18px;
+  }
+  .menu_cover {
+    width: 95px;
+    display: flex;
+    justify-content: center;
+  }
+  .menunewcoverevent_cover {
+    width: 180px;
+    display: flex;
+    justify-content: center;
+  }
+  .menuquestion_cover {
+    width: 180px;
+    display: flex;
+    justify-content: center;
+  }
+  .menu_wrapper {
+    display: flex;
+    width: 95%;
+    height: 80px;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px auto 20px auto;
+    background-color: white;
+    border-radius: 20px;
+  }
+  .h1_wrapper {
+    width: fit-content;
+    height: 20px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    margin: 70px 10% 20px 10%;
+    border-bottom: 5px solid #489d51;
+  }
+  .h1logo {
+    width: 25px;
+    margin-right: 12px;
+  }
+  .h1title {
+    font-size: 20px;
+  }
+  .imoexplenation {
+    font-size: 13px;
+    line-height: 26px;
+    margin-top: 10px;
+  }
+  .imopicture {
+    margin-top: 30px;
+    height: 150px;
+  }
+  .wrapper {
+    width: 70%;
+    margin: 50px auto;
+  }
+  .imograph {
+    margin-top: 30px;
+    height: 250px;
+  }
 }
