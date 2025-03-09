@@ -1,16 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
-
-.font-family {
-  font-family: "Hiragino maru Gothic ProN W4", "Hiragino Kaku Gothic Pro",
-    "Hiragino Sans", "arial", "Meiryo", "MS PGothic", sans-serif;
-}
-.bold {
-  font-weight: bolder;
-}
-.whole_wrapper {
-  display: flex;
-  flex-direction: column;
-}
+/*スライドアニメーションの設定*/
 @keyframes slide {
   0% {
     transform: translateX(0);
@@ -19,18 +7,6 @@
     transform: translateX(-100%);
   }
 }
-/* 最初は透明で表示されない */
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-/* スクロールインしたときに適用されるスタイル */
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 @keyframes image-switch-animation {
   0% {
     opacity: 0;
@@ -48,6 +24,7 @@
     opacity: 0;
   }
 }
+/*写真の交換の秒数*/
 .image:nth-of-type(1) {
   animation-delay: 0s;
 }
@@ -63,321 +40,62 @@
 .image:nth-of-type(5) {
   animation-delay: 20s;
 }
+.image {
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  animation: image-switch-animation 25s infinite;
+  filter: brightness(60%);
+}
 
 @media screen and (min-width: 961px) {
-  .logoname_up {
-    font-family: "Itim", cursive;
-    font-size: 22px;
-  }
-  .logoname_down {
-    font-family: "Itim", cursive;
-    font-style: italic;
-    font-size: 13px;
-  }
-  .logo {
-    height: 40px;
-  }
-  .logo_wrapper {
-    display: flex;
-    height: 40px;
-    width: 190px;
-    justify-content: space-between;
-    margin-left: 10px;
-    position:relative;
-  }
-  .logo_wrapper a {
-    height: 40px;
-    width: 190px;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  .logoname_wrapper {
-    height: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .imomark {
-    width: 15px;
-  }
-  .menu {
-    font-size: 20px;
-    transition: all 300ms 0s ease;
-  }
-  .menunewcomerevent {
-    font-size: 15px;
-    transition: all 300ms 0s ease;
-  }
-  .menuquestion {
-    font-size: 15px;
-    transition: all 300ms 0s ease;
-  }
-  .menu:hover {
-    font-size: 23px;
-  }
-  .menunewcomerevent:hover {
-    font-size: 18px;
-  }
-  .menuquestion:hover {
-    font-size: 18px;
-  }
-  .menu_cover {
-    width: 95px;
-    display: flex;
-    justify-content: center;
-  }
-  .menunewcoverevent_cover {
-    width: 180px;
-    display: flex;
-    justify-content: center;
-  }
-  .menuquestion_cover {
-    width: 180px;
-    display: flex;
-    justify-content: center;
-  }
-  .hamburger-menu {
-    display: none;
-  }
-  .menu_wrapper {
-    display: flex;
-    width: 95%;
-    height: 80px;
-    justify-content: space-around;
-    align-items: center;
-    background-color: white;
-    border-radius: 20px;
-    position: fixed;
-    top: 20px;
-    left: 2.5%;
-    z-index: 100;
-    transition: transform 1s ease, opacity 0.3s ease;
-  }
-  .container {
-    position: relative;
-    width: 100vw;
-    height: 90vh;
-  }
-  .image {
-    width: 75vw;
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    animation: image-switch-animation 25s infinite;
-  }
-  .h1_wrapper {
-    width: fit-content;
-    height: 32px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    margin: 70px 10% 40px 10%;
-    border-bottom: 5px solid #489d51;
-  }
-  .h1logo {
-    width: 40px;
-    margin-right: 15px;
-  }
-  .h1title {
-    font-size: 32px;
-  }
-  .imoexplenation {
-    font-size: 20px;
-    line-height: 50px;
-    margin-top: 20px;
-  }
-
   .imograph {
     margin-top: 30px;
     height: 300px;
   }
-  .wrapper {
-    width: 70%;
+  .container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+  .white_title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: whitesmoke;
+    font-size: 75px;
+    z-index: 100;
+    font-weight: 1000;
+    width: 80vw;
+    text-align: center;
     margin: auto;
+    opacity: 70%;
   }
 }
 @media screen and (max-width: 640px) {
   /* ここはスマホ用のCSS */
-  .logoname_down {
-    font-family: "Itim", cursive;
-    font-style: italic;
-    font-size: 13px;
-  }
-  .logoname_up {
-    font-family: "Itim", cursive;
-    font-size: 22px;
-  }
-  .logo {
-    height: 40px;
-  }
-  .logo_wrapper {
-    display: flex;
-    height: 40px;
-    width: 40px;
-    justify-content: space-between;
-    position: fixed;
-    top: 5vh;
-    left: 9vw;
-  }
-  .logoname_wrapper {
-    display: none;
-  }
-  .imomark {
-    width: 15px;
-  }
-  .menu {
-    font-size: 24px;
-    transition: all 300ms 0s ease;
-  }
-  .menunewcomerevent {
-    font-size: 18px;
-    transition: all 300ms 0s ease;
-  }
-  .menuquestion {
-    font-size: 18px;
-    transition: all 300ms 0s ease;
-  }
-  .menu:hover {
-    font-size: 28px;
-  }
-  .menunewcomerevent:hover {
-    font-size: 20px;
-  }
-  .menuquestion:hover {
-    font-size: 20px;
-  }
-  .menu_cover {
-    display: none;
-  }
-  .active.menu_cover {
-    height: 50px;
-
-    display: flex;
-    justify-content: center;
-  }
-  .menunewcoverevent_cover {
-    display: none;
-  }
-  .active.menunewcoverevent_cover {
-    height: 50px;
-    display: flex;
-    justify-content: center;
-  }
-  .menuquestion_cover {
-    display: none;
-  }
-  .active.menuquestion_cover {
-    height: 50px;
-    display: flex;
-    justify-content: center;
-  }
-  /* ハンバーガーメニューのスタイル */
-  .hamburger-menu {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
-    height: 20px;
-    cursor: pointer;
-    position: fixed;
-    top: 6.5vh;
-    left: 25vw;
-  }
-
-  /* ハンバーガーメニューのアイコンのスタイル */
-  .hamburger-line {
-    width: 100%;
-    height: 2px;
-    background-color: #333;
-    margin-bottom: 4px;
-  }
-  /* ハンバーガーメニューのアニメーション */
-  .hamburger-menu.active .hamburger-line:nth-child(1) {
-    transform: translateY(6.5px) rotate(45deg); /* 1本目の線が45度回転 */
-  }
-
-  .hamburger-menu.active .hamburger-line:nth-child(2) {
-    opacity: 0; /* 2本目の線が消える */
-  }
-
-  .hamburger-menu.active .hamburger-line:nth-child(3) {
-    transform: translateY(-6.5px) rotate(-45deg); /* 3本目の線が逆方向に45度回転 */
-  }
-
-  .menu_wrapper {
-    display: flex;
-    width: 30%;
-    height: 80px;
-    justify-content: space-around;
-    align-items: center;
-    margin: 20px auto 20px 20px;
-    background-color: white;
-    border-radius: 20px;
-    position: fixed;
-    z-index: 100;
-  }
-  .active.menu_wrapper {
-    display: flex;
-    flex-direction: column;
-    width: 90vw;
-    height: 90vh;
-    justify-content: space-around;
-    align-items: center;
-    margin: 20px auto 20px 20px;
-    background-color: white;
-    border-radius: 20px;
-    position: fixed;
-    z-index: 100;
-  }
-
   .container {
     position: relative;
     width: 100vw;
-    height: 45vh;
+    height: 40vh;
   }
-  .image {
-    width: 75vw;
+  .white_title {
     position: absolute;
-    top: 70%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0;
-    animation: image-switch-animation 25s infinite;
+    color: whitesmoke;
+    font-size: 30px;
+    z-index: 100;
+    font-weight: 1000;
+    width: 80vw;
+    text-align: center;
+    margin: auto;
+    opacity: 70%;
   }
-  .h1_wrapper {
-    width: fit-content;
-    height: 24px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    margin: 70px 10% 20px 10%;
-    border-bottom: 5px solid #489d51;
-  }
-  .h1logo {
-    width: 30px;
-    margin-right: 12px;
-  }
-  .h1title {
-    font-size: 24px;
-  }
-  .imoexplenation {
-    font-size: 15px;
-    line-height: 30px;
-    margin-top: 10px;
-  }
-  .imopicture {
-    margin-top: 30px;
-    width: 70vw;
-  }
-  .wrapper {
-    width: 70%;
-    margin: 50px auto;
-  }
+
   .imograph {
     margin-top: 30px;
     width: 70vw;
@@ -385,125 +103,27 @@
 }
 @media screen and (max-width: 960px) and (min-width: 641px) {
   /* ここはタブレット用のCSS */
-  .logoname_down {
-    font-family: "Itim", cursive;
-    font-style: italic;
-    font-size: 13px;
-  }
-  .logoname_up {
-    font-family: "Itim", cursive;
-    font-size: 22px;
-  }
-  .logo {
-    height: 40px;
-    /* animation: rotation 3s ease 0s 1 alternate none running; */
-  }
-  .logo_wrapper {
-    display: flex;
-    height: 40px;
-    width: 40px;
-    justify-content: space-between;
-    margin-left: 10px;
-  }
-  .logoname_wrapper {
-    display: none;
-  }
-
-  .imomark {
-    width: 15px;
-  }
-  .menu {
-    font-size: 15px;
-    transition: all 300ms 0s ease;
-  }
-  .menunewcomerevent {
-    font-size: 12px;
-    transition: all 300ms 0s ease;
-  }
-  .menuquestion {
-    font-size: 12px;
-    transition: all 300ms 0s ease;
-  }
-  .menu:hover {
-    font-size: 18px;
-  }
-  .menunewcomerevent:hover {
-    font-size: 15px;
-  }
-  .menuquestion:hover {
-    font-size: 15px;
-  }
-  .menu_cover {
-    width: 95px;
-    display: flex;
-    justify-content: center;
-  }
-  .menunewcoverevent_cover {
-    width: 180px;
-    display: flex;
-    justify-content: center;
-  }
-  .menuquestion_cover {
-    width: 135px;
-    display: flex;
-    justify-content: center;
-  }
-  .hamburger-menu {
-    display: none;
-  }
-  .menu_wrapper {
-    display: flex;
-    width: 95%;
-    height: 80px;
-    justify-content: space-around;
-    align-items: center;
-    margin: 20px auto 20px auto;
-    background-color: white;
-    border-radius: 20px;
-    position: fixed;
+  .imograph {
+    margin-top: 30px;
+    height: 300px;
   }
   .container {
     position: relative;
     width: 100vw;
-    height: 70vh;
+    height: 100vh;
   }
-  .image {
-    width: 75vw;
+  .white_title {
     position: absolute;
-    top: 60%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0;
-    animation: image-switch-animation 25s infinite;
-  }
-  .h1_wrapper {
-    width: fit-content;
-    height: 20px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    margin: 70px 10% 20px 10%;
-    border-bottom: 5px solid #489d51;
-  }
-  .h1logo {
-    width: 30px;
-    margin-right: 12px;
-  }
-  .h1title {
-    font-size: 28px;
-  }
-  .imoexplenation {
-    font-size: 16px;
-    line-height: 32px;
-    margin-top: 10px;
-  }
-
-  .wrapper {
-    width: 70%;
-    margin: 50px auto;
-  }
-  .imograph {
-    margin-top: 30px;
-    height: 250px;
+    color: whitesmoke;
+    font-size: 50px;
+    z-index: 100;
+    font-weight: 1000;
+    width: 80vw;
+    text-align: center;
+    margin: auto;
+    opacity: 70%;
   }
 }
