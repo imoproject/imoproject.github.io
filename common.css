@@ -1,4 +1,478 @@
+@import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
 body {
   background-color: blanchedalmond;
   margin: 0;
+}
+/*fontの設定*/
+.font-family {
+  font-family: "Hiragino maru Gothic ProN W4", "Hiragino Kaku Gothic Pro",
+    "Hiragino Sans", "arial", "Meiryo", "MS PGothic", sans-serif;
+}
+.font-itim {
+  font-family: "Itim";
+}
+/*太文字の設定*/
+.bold {
+  font-weight: 1000;
+}
+/*whole_wrapperはヘッダーとフッターの間、要素を縦に並べる*/
+.whole_wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+}
+/* fade-inの設定 */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+/* スクロールインしたときに適用されるスタイル */
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/*選択されているページを表示*/
+.selected {
+  border-bottom: 3px solid #ffc7af;
+}
+.footer {
+  background-color: #ffc7af;
+  width: 100vw;
+  height: fit-content;
+  padding: 10vh 0;
+  margin-top: 10vh;
+  display: flex;
+}
+.square {
+  height: 15vh;
+}
+
+@media screen and (min-width: 961px) {
+  /*pc版のcss*/
+  .imoexplenation {
+    font-size: 20px;
+    line-height: 50px;
+    margin-top: 20px;
+  }
+  .whole_wrapper {
+    width: 80vw;
+    margin-left: 10vw;
+    margin-right: 10vw;
+  }
+  .wrapper {
+    width: 100%;
+    margin: 2.5vh 0;
+  }
+  .header {
+    display: flex;
+    width: 95%;
+    height: 80px;
+    justify-content: space-around;
+    align-items: center;
+
+    background-color: white;
+    border-radius: 20px;
+    position: fixed;
+    top: 20px;
+    left: 2.5%;
+    z-index: 1000;
+    transition: transform 1s ease, opacity 0.3s ease;
+  }
+  .logoname_up {
+    font-family: "Itim", cursive;
+    font-size: 22px;
+  }
+  .logoname_down {
+    font-family: "Itim", cursive;
+    font-style: italic;
+    font-size: 13px;
+  }
+  .logo {
+    height: 40px;
+  }
+  .logo_wrapper {
+    display: flex;
+    height: 40px;
+    width: 190px;
+    justify-content: space-between;
+    margin-left: 10px;
+    position: relative;
+  }
+  .logo_wrapper a {
+    height: 40px;
+    width: 190px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .logoname_wrapper {
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .h1_wrapper {
+    margin: 10vh auto;
+    width: fit-content;
+    height: 32px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 5px solid #489d51;
+  }
+  .h1logo {
+    width: 40px;
+    margin-right: 15px;
+  }
+  .h1title {
+    font-size: 32px;
+  }
+
+  .menu_cover {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    a {
+      text-decoration: none;
+      color: black;
+      font-size: 20px;
+      transition: all 300ms 0s ease;
+    }
+  }
+  .menu_cover:hover {
+    a {
+      font-size: 23px;
+    }
+  }
+  .imomark {
+    width: 15px;
+  }
+  .hamburger-menu {
+    display: none;
+  }
+  .footer {
+    justify-content: space-around;
+  }
+  .footer-left {
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .twitter-timeline {
+    width: 30vw;
+  }
+  .instagram-media {
+    width: 20vw;
+  }
+  .mail {
+    margin-bottom: 5vh;
+  }
+  .line-title {
+    display: inline-block;
+    width: 15vh;
+    height: 15vh;
+    background-image: url "../pictures/LINE_Brand_icon.png";
+  }
+  .line-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: 20vh;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 640px) {
+  /* ここはスマホ用のCSS */
+  .logoname_wrapper {
+    display: none;
+  }
+  .logo {
+    height: 40px;
+  }
+  .logo_wrapper {
+    display: flex;
+    height: 40px;
+    width: 40px;
+    justify-content: space-between;
+    position: fixed;
+    top: 5vh;
+    left: 9vw;
+  }
+  .logoname_wrapper {
+    display: none;
+  }
+  .imoexplenation {
+    font-size: 15px;
+    line-height: 30px;
+    margin-top: 10px;
+  }
+
+  .wrapper {
+    width: 70%;
+    margin: 50px auto;
+  }
+
+  .imomark {
+    width: 15px;
+  }
+
+  .menu_cover {
+    display: none;
+    a {
+      font-size: 24px;
+      text-decoration: none;
+      color: black;
+    }
+  }
+  .active.menu_cover {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+  }
+  /* ハンバーガーメニューのスタイル */
+  .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    position: fixed;
+    top: 6.5vh;
+    left: 25vw;
+    z-index: 202;
+  }
+
+  /* ハンバーガーメニューのアイコンのスタイル */
+  .hamburger-line {
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    margin-bottom: 4px;
+    transition: all 0.5s ease;
+  }
+  /* ハンバーガーメニューのアニメーション */
+  .hamburger-menu.active .hamburger-line:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg); /* 1本目の線が45度回転 */
+  }
+
+  .hamburger-menu.active .hamburger-line:nth-child(2) {
+    opacity: 0; /* 2本目の線が消える */
+  }
+
+  .hamburger-menu.active .hamburger-line:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg); /* 3本目の線が逆方向に45度回転 */
+  }
+
+  .header {
+    display: flex;
+    width: 30%;
+    height: 80px;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px auto 20px 20px;
+    background-color: white;
+    border-radius: 20px;
+    position: fixed;
+    z-index: 100;
+    transition: all 0.5s ease;
+  }
+  .active.header {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    height: 90vh;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px auto 20px 20px;
+    background-color: white;
+    border-radius: 20px;
+    position: fixed;
+    z-index: 101;
+  }
+
+  .h1_wrapper {
+    width: fit-content;
+    height: 24px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    margin: 3vh auto;
+    border-bottom: 5px solid #489d51;
+  }
+  .h1logo {
+    width: 30px;
+    margin-right: 12px;
+  }
+  .h1title {
+    font-size: 24px;
+  }
+  .footer {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .footer-left {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5vh auto;
+  }
+  .twitter-timeline {
+    width: 80vw;
+    margin: 5vh auto;
+  }
+  .instagram-media {
+    width: 80vw;
+    margin: 5vh auto;
+  }
+  .mail {
+    margin-bottom: 5vh;
+  }
+  .line-title {
+    display: inline-block;
+    width: 15vh;
+    height: 15vh;
+    background-image: url "../pictures/LINE_Brand_icon.png";
+  }
+  .line-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: 20vh;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 960px) and (min-width: 641px) {
+  /* ここはタブレット用のCSS */
+  .imoexplenation {
+    font-size: 16px;
+    line-height: 32px;
+    margin-top: 5vh;
+  }
+  .wrapper {
+    width: 100%;
+    margin: 3vh auto;
+  }
+  .logoname_wrapper {
+    display: none;
+  }
+  .logo {
+    height: 40px;
+    /* animation: rotation 3s ease 0s 1 alternate none running; */
+  }
+  .logo_wrapper {
+    display: flex;
+    height: 40px;
+    width: 40px;
+    justify-content: center;
+    margin-left: 10px;
+  }
+  .logoname_wrapper {
+    display: none;
+  }
+  .menu_cover:hover {
+    a {
+      font-size: 18px;
+    }
+  }
+  .menu_cover {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    transition: all 300ms 0s ease;
+    a {
+      text-decoration: none;
+      color: black;
+      font-size: 15px;
+      transition: all 300ms 0s ease;
+    }
+  }
+  .hamburger-menu {
+    display: none;
+  }
+  .header {
+    display: flex;
+    width: 95vw;
+    height: 80px;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px auto 20px auto;
+    background-color: white;
+    border-radius: 20px;
+    position: fixed;
+    z-index: 101;
+  }
+  .imomark {
+    width: 15px;
+  }
+
+  .container {
+    position: relative;
+    width: 100vw;
+    height: 60vh;
+  }
+  .h1_wrapper {
+    margin: 3vh auto;
+    width: fit-content;
+    height: 20px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 5px solid #489d51;
+  }
+  .whole_wrapper {
+    width: 80vw;
+    margin-left: 10vw;
+    margin-right: 10vw;
+  }
+  .h1logo {
+    width: 30px;
+    margin-right: 12px;
+  }
+  .h1title {
+    font-size: 28px;
+  }
+  .footer {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .footer-left {
+    width: 80vw;
+    display: flex;
+    justify-content: space-between;
+    margin: 5vh auto;
+  }
+  .twitter-timeline {
+    width: 80vw;
+    margin: 5vh auto;
+  }
+  .instagram-media {
+    width: 80vw;
+    margin: 5vh auto;
+  }
+  .mail {
+    margin-bottom: 5vh;
+  }
+  .line-title {
+    display: inline-block;
+    width: 15vh;
+    height: 15vh;
+    background-image: url "../pictures/LINE_Brand_icon.png";
+  }
+  .line-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: 20vh;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
