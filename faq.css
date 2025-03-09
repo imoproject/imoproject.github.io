@@ -1,0 +1,29 @@
+.question {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  border-radius: 50%;
+  background-color: #ff9900;
+  justify-content: center;
+  align-items: center;
+}
+.answer {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #cc0066;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.center {
+  font-size: 30px;
+  color: white;
+}
+.sentence {
+  font-size: 20px;
+  margin-left: 60px;
+}
+.smallsquare {
+  height: 5vh;
+}

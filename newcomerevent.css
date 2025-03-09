@@ -1,0 +1,40 @@
+.comment_picture {
+  width: 30vw;
+}
+.comment {
+  width: 30vw;
+  overflow: wrap;
+  margin-bottom: 20px;
+}
+.comment_wrapper {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0 1.5em 3vw;
+  padding: 20px 20px;
+  width: fit-content;
+  color: #555;
+  font-size: 16px;
+  background: white;
+  border-radius: 20px;
+}
+
+.comment_wrapper:before {
+  content: "";
+  position: absolute;
+  top: 70%;
+  left: -30px;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-right: 15px solid white;
+}
+
+.comment_position {
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+}
+@media screen and (max-width: 640px) {
+  .comment_position {
+    display: none;
+  }
+}
