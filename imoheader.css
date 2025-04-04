@@ -57,48 +57,44 @@
   .container {
     position: relative;
     width: 100vw;
-    height: 100vh;
+    height: 150vh;
   }
   .white_title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: whitesmoke;
-    font-size: 75px;
+    font-size: 35px;
     z-index: 100;
     font-weight: 1000;
     width: 80vw;
     text-align: center;
     margin: auto;
-    opacity: 70%;
+  }
+  .logo2_wrapper {
+    width: 100vw;
+    height: 70vh;
   }
 }
 @media screen and (max-width: 640px) {
   /* ここはスマホ用のCSS */
-  .container {
+  .container.special {
     position: relative;
     width: 100vw;
-    height: 40vh;
+    height: 90vh;
   }
   .white_title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: whitesmoke;
-    font-size: 30px;
+    font-size: 18px;
     z-index: 100;
     font-weight: 1000;
     width: 80vw;
     text-align: center;
     margin: auto;
-    opacity: 70%;
   }
 
   .imograph {
     margin-top: 30px;
     width: 70vw;
+  }
+  .logo2_wrapper {
+    width: 100vw;
+    height: 35vh;
   }
 }
 @media screen and (max-width: 960px) and (min-width: 641px) {
@@ -107,23 +103,47 @@
     margin-top: 30px;
     height: 300px;
   }
-  .container {
+  .container.special {
     position: relative;
     width: 100vw;
-    height: 100vh;
+    height: 150vh;
   }
   .white_title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: whitesmoke;
-    font-size: 50px;
+    font-size: 30px;
     z-index: 100;
     font-weight: 1000;
     width: 80vw;
     text-align: center;
     margin: auto;
-    opacity: 70%;
   }
+  .logo2_wrapper {
+    width: 100vw;
+    height: 70vh;
+  }
+}
+.logo2 {
+  width: 20vw;
+  margin: 20vh 40vw 5vh 40vw;
+  animation: 1s both appear;
+}
+.white_title {
+  animation: 1s both appear;
+  animation-delay: 0.8s;
+}
+@keyframes appear {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.photo_wrapper {
+  position: relative;
+  width: 100vw;
+  height: 80vh;
+  max-height: 600px;
+  overflow: hidden;
+  margin-top: 10vh;
 }
