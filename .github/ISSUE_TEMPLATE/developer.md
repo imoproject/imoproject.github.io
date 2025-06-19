@@ -1,14 +1,13 @@
 name: 🚧 開発タスク
 description: 開発者がやることを簡単にまとめるタスク用Issue
 title: "[開発] タスク名を簡潔に"
-label: HP改善
+labels: HP改善
 
 ---
 
 ## やりたいこと
 
 ## 背景
-
 
 ## 期限
 
