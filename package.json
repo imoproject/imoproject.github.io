@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/imoproject-hp/imoproject-hp.github.io#readme",
   "devDependencies": {
-    "htmlhint": "^latest"
+    "htmlhint": "^1.6.3"
   }
 }
