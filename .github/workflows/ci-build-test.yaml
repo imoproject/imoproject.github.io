@@ -1,6 +1,9 @@
 name: CI / Build and Test Page
 
-on: push
+on: 
+  push:
+    paths-ignore:
+          - '.github/**'
 
 jobs:
   build:
