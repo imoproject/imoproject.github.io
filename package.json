@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/imoproject-hp/imoproject-hp.github.io/issues"
   },
-  "homepage": "https://github.com/imoproject-hp/imoproject-hp.github.io#readme"
+  "homepage": "https://github.com/imoproject-hp/imoproject-hp.github.io#readme",
+  "devDependencies": {
+    "htmlhint": "^1.6.3"
+  }
 }
