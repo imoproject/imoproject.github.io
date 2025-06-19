@@ -47,5 +47,5 @@ jobs:
 
       - name: UI check with Playwright
         run: |
-          npx http-server ./ -p 8080 &
+          npx http-server ./imoproject-hp.github.io -p 8080 &
           npx playwright test
