@@ -1,0 +1,29 @@
+{
+  "name": "imoproject-hp.github.io",
+  "version": "1.0.0",
+  "description": "imoprojectのHP作成リポジトリ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo 'No build needed for static HTML'",
+    "lint:html": "htmlhint '**/*.html'",
+    "test:e2e": "playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imoproject-hp/imoproject-hp.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/imoproject-hp/imoproject-hp.github.io/issues"
+  },
+  "homepage": "https://github.com/imoproject-hp/imoproject-hp.github.io#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.53.1",
+    "htmlhint": "^1.6.3",
+    "http-server": "^14.1.1"
+  }
+}
