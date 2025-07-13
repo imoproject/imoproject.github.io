@@ -6,23 +6,23 @@ class HeaderComponent extends HTMLElement {
     this.render();
   }
   goHome() {
-    window.location.href = "/imoproject-hp.github.io/";
+    window.location.href = "/";
   }
   goActivity() {
-    window.location.href = "/imoproject-hp.github.io/activity.html";
+    window.location.href = "/activity.html";
   }
   goFaq() {
-    window.location.href = "/imoproject-hp.github.io/faq.html";
+    window.location.href = "/faq.html";
   }
   goAboutPotato() {
-    window.location.href = "/imoproject-hp.github.io/about-potato.html";
+    window.location.href = "/about-potato.html";
   }
   render() {
     const shadow = this.attachShadow({ mode: "open" });
     shadow.innerHTML = ` 
     <div class="header">
       <div class="option-wrapper" id="home">
-        <img src="/imoproject-hp.github.io/assets/imologo.png" class="imologo" />
+        <img src="/assets/imologo.png" class="imologo" />
         IMOPROJECT
       </div>
       <div class="header-righthalf">
