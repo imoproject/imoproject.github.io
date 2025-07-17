@@ -27,10 +27,10 @@ class HeaderComponent extends HTMLElement {
       </div>
       <div class="header-righthalf">
         <div class="option-wrapper" id="activity">活動内容</div>
-        <div class="option-wrapper stick">/</div>
+       
         <div class="option-wrapper" id="faq">よくあるご質問</div>
-        <div class="option-wrapper stick">/</div>
-        <div class="option-wrapper" id="about-potato">芋についてもっと知りたい人へ</div>
+       
+        <div class="option-wrapper" id="about-potato">芋についてもっと知りたい方へ</div>
       </div>
     </div>
   <style> .header {
@@ -40,6 +40,7 @@ class HeaderComponent extends HTMLElement {
     padding: 0 10px;
     background-color: snow;
     justify-content: space-between;
+    border-bottom: 3px solid #AD1A45;
   }
   .option {
     font-size: 15px;
