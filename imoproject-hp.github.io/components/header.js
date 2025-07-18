@@ -32,8 +32,14 @@ class HeaderComponent extends HTMLElement {
        
         <div class="option-wrapper" id="about-potato">芋についてもっと知りたい方へ</div>
       </div>
+      <div class="hamburger-menu">
+        <div class="hamburger-bar"></div>
+        <div class="hamburger-bar"></div>
+        <div class="hamburger-bar"></div>
+      </div>
     </div>
-  <style> .header {
+  <style> 
+  .header {
     display: flex;
     width: 100%;
     height: 4rem;
@@ -41,9 +47,13 @@ class HeaderComponent extends HTMLElement {
     background-color: snow;
     justify-content: space-between;
     border-bottom: 3px solid #AD1A45;
+    @media screen and (max-width: 720px) {
+      justify-content:start;
+      align-items:center;
+    }
   }
   .option {
-    font-size: 15px;
+    font-size: 1rem;
     margin: 0 2px;
     color: black;
     text-decoration: none;
@@ -63,13 +73,37 @@ class HeaderComponent extends HTMLElement {
     width: fit-content;
     display: flex;
     align-items: center;
+    @media screen and (max-width: 720px) {
+      display:none;
+    }
   }
   .header-righthalf {
     display: flex;
     width: 65%;
     justify-content: space-between;
     padding: 0 5%;
-  }</style>`;
+    @media screen and (max-width: 720px) {
+      display:none;
+    }
+  }
+  .hamburger-menu{
+    width:28px;
+    height:20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    margin-left:20px;
+    @media screen and (min-width: 721px) {
+      display:none;
+    }
+  }
+  .hamburger-bar{
+    width:28px;
+    height:2px;
+    background-color: #AD1A45;
+    border-radius:1px;
+  }
+    </style>`;
     const homeButton = this.shadowRoot.querySelector("#home");
     homeButton.addEventListener("click", () => this.goHome());
     const activityButton = this.shadowRoot.querySelector("#activity");
