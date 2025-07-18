@@ -21,7 +21,12 @@ class HeaderComponent extends HTMLElement {
     const shadow = this.attachShadow({ mode: "open" });
     shadow.innerHTML = ` 
     <div class="header">
-      <div class="option-wrapper" id="home">
+      <div class="hamburger-menu">
+        <div class="hamburger-bar first"></div>
+        <div class="hamburger-bar second"></div>
+        <div class="hamburger-bar third"></div>
+      </div>
+      <div class="option-wrapper-logo" id="home">
         <img src="assets/imologo.png" class="imologo" />
         IMOPROJECT
       </div>
@@ -31,11 +36,6 @@ class HeaderComponent extends HTMLElement {
         <div class="option-wrapper" id="faq">よくあるご質問</div>
        
         <div class="option-wrapper" id="about-potato">芋についてもっと知りたい方へ</div>
-      </div>
-      <div class="hamburger-menu">
-        <div class="hamburger-bar"></div>
-        <div class="hamburger-bar"></div>
-        <div class="hamburger-bar"></div>
       </div>
     </div>
   <style> 
@@ -60,13 +60,22 @@ class HeaderComponent extends HTMLElement {
     transition: 0.3s;
     display: flex;
     align-items: center;
+    @media screen and (max-width: 720px) {
+      font-size:1.2rem;
+    }
   }
   .option:hover {
     transform: scale(1.1);
   }
   .imologo {
-    height: 40px;
+    height: 2.2rem;
     margin: 0 10px;
+  }
+  .option-wrapper-logo {
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    align-items: center;
   }
   .option-wrapper {
     height: 100%;
@@ -74,7 +83,7 @@ class HeaderComponent extends HTMLElement {
     display: flex;
     align-items: center;
     @media screen and (max-width: 720px) {
-      display:none;
+     margin: 10px 0;
     }
   }
   .header-righthalf {
@@ -83,8 +92,20 @@ class HeaderComponent extends HTMLElement {
     justify-content: space-between;
     padding: 0 5%;
     @media screen and (max-width: 720px) {
-      display:none;
+      background-color:snow;
+      display:flex;
+      flex-direction:column;
+      position:fixed;
+      top:4.25rem;
+      left:-100vw;
+      width:fit-content;
+      transition: all 0.3s ease;
     }
+  }
+  .header-righthalf.show {
+    display: flex;
+    transform:translateX(100vw);
+    transition: all 0.3s ease;
   }
   .hamburger-menu{
     width:28px;
@@ -93,6 +114,7 @@ class HeaderComponent extends HTMLElement {
     flex-direction:column;
     justify-content:space-between;
     margin-left:20px;
+    margin-right:20px;
     @media screen and (min-width: 721px) {
       display:none;
     }
@@ -102,6 +124,18 @@ class HeaderComponent extends HTMLElement {
     height:2px;
     background-color: #AD1A45;
     border-radius:1px;
+    transition: all 0.3s ease;
+  }
+  .hamburger-bar.show.first{
+    transform:rotate(45deg) translateY(13px);
+    transition: all 0.3s ease;
+  }
+  .hamburger-bar.show.second{
+    display:none;
+  }
+  .hamburger-bar.show.third{
+    transform:rotate(-45deg) translateY(-13px);
+    transition: all 0.3s ease;
   }
     </style>`;
     const homeButton = this.shadowRoot.querySelector("#home");
@@ -112,8 +146,22 @@ class HeaderComponent extends HTMLElement {
     faqButton.addEventListener("click", () => this.goFaq());
     const aboutPotatoButton = this.shadowRoot.querySelector("#about-potato");
     aboutPotatoButton.addEventListener("click", () => this.goAboutPotato());
+    const hamburgerMenu = this.shadowRoot.querySelector(".hamburger-menu");
+    const hamburgerBars = this.shadowRoot.querySelectorAll(".hamburger-bar");
+    const headerRight = this.shadowRoot.querySelector(".header-righthalf");
+    const optionWrappers = this.shadowRoot.querySelectorAll(".option-wrapper");
+
+    hamburgerMenu.addEventListener("click", () => {
+      // クラスの切り替え（toggle）
+      headerRight.classList.toggle("show");
+      optionWrappers.forEach((el) => {
+        el.classList.toggle("show");
+      });
+      hamburgerBars.forEach((el) => {
+        el.classList.toggle("show");
+      });
+    });
   }
 }
 
-// カスタム要素を登録
 customElements.define("header-component", HeaderComponent);
