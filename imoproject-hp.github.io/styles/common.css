@@ -1,3 +1,13 @@
+@media screen and (min-width: 721px) {
+  html {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 720px) {
+  html {
+    font-size: 12px;
+  }
+}
 body {
   background-color: blanchedalmond;
   z-index: -1;
@@ -15,28 +25,33 @@ header-component {
   height: 20vh;
 }
 h1 {
-  margin: 2rem auto;
-  width: fit-content;
-  padding: 0.2rem 0.7rem 0.2rem 2rem;
-  border-bottom: 0.2rem solid #489d51;
-  position: relative;
-  &::before {
-    content: "";
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background-image: url("@/assets/global/imoh1.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    left: -20px;
-    top: -5px;
-  }
+  color: #ad1a45;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  font-family: "Inter";
+  margin-top: 40px;
+  margin-bottom: 0px;
+}
+h2 {
+  color: #828282;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 25px;
 }
 section {
   width: 80vw;
   margin: auto;
+  margin-top: 100px;
 }
 p {
+  font-size: 1rem;
   line-height: 1.8;
+  display: flex;
+  justify-content: center;
+}
+.wrapper {
+  margin: 50px 0;
 }
