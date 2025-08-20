@@ -20,147 +20,144 @@ class HeaderComponent extends HTMLElement {
   render() {
     const shadow = this.attachShadow({ mode: "open" });
     shadow.innerHTML = ` 
-    <div class="header">
-      <div class="hamburger-menu">
-        <div class="hamburger-bar first"></div>
-        <div class="hamburger-bar second"></div>
-        <div class="hamburger-bar third"></div>
-      </div>
-      <div class="option-wrapper-logo" id="home">
-        <img src="assets/imologo.png" class="imologo" />
-        IMOPROJECT
-      </div>
-      <div class="header-righthalf">
-        <div class="option-wrapper" id="activity">活動内容</div>
-       
-        <div class="option-wrapper" id="faq">よくあるご質問</div>
-       
-        <div class="option-wrapper" id="about-potato">芋についてもっと知りたい方へ</div>
+    <div class="header-wrapper">
+    <div class="logo-container" id="home">
+      <img src="../assets/imologo.png" class="imologo" />
+      IMOPROJECT
+    </div>
+    <div class="sns-wrapper-pc">
+      公式SNS
+      <div class="horizonal">
+        <div class="sns-container">
+          <img src="../assets/instagram.svg" class="sns-logo" />
+          <div class="arrow">
+            Instagram
+            <div class="arrow-right"></div>
+          </div>
+        </div>
+       <a href="https://x.com/imoproject_ut" target="_blank" class="sns-container">
+  <img src="../assets/X.png" class="sns-logo" />
+  <div class="arrow">
+    X
+    <div class="arrow-right"></div>
+  </div>
+</a>
+
       </div>
     </div>
+    <div class="sns-wrapper-sp">
+      <img src="../assets/instagram.svg" class="sns-logo" />
+      <img src="../assets/X.png" class="sns-logo" />
+    </div>
+  </div>
   <style> 
-  .header {
-    display: flex;
-    width: 100%;
-    height: 4rem;
-    padding: 0 10px;
-    background-color: snow;
-    justify-content: space-between;
-    border-bottom: 3px solid #AD1A45;
-    @media screen and (max-width: 720px) {
-      justify-content:start;
-      align-items:center;
-    }
-  }
-  .option {
-    font-size: 1rem;
-    margin: 0 2px;
-    color: black;
-    text-decoration: none;
-    transition: 0.3s;
-    display: flex;
-    align-items: center;
-    @media screen and (max-width: 720px) {
-      font-size:1.2rem;
-    }
-  }
-  .option:hover {
-    transform: scale(1.1);
-  }
   .imologo {
-    height: 2.2rem;
-    margin: 0 10px;
+  width: 40px;
+  margin-right: 10px;
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+.header-wrapper {
+  background-color: #fffafa;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  border-width: 15px 0 10px 0;
+  border-color: #ad1a45;
+  border-style: solid;
+}
+
+
+@media screen and (max-width: 720px) {
+  .imologo {
+    width: 30px;
+    margin-right: 7px;
   }
-  .option-wrapper-logo {
-    height: 100%;
-    width: fit-content;
-    display: flex;
-    align-items: center;
+  .logo-container {
+    font-size: 15px;
   }
-  .option-wrapper {
-    height: 100%;
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    @media screen and (max-width: 720px) {
-     margin: 10px 0;
-    }
+  .header-wrapper {
+    padding: 12px 18px;
+    border-width: 8px 0 5px 0;
   }
-  .header-righthalf {
-    display: flex;
-    width: 65%;
-    justify-content: space-between;
-    padding: 0 5%;
-    @media screen and (max-width: 720px) {
-      background-color:snow;
-      display:flex;
-      flex-direction:column;
-      position:fixed;
-      top:4.25rem;
-      left:-100vw;
-      width:fit-content;
-      transition: all 0.3s ease;
-    }
+  .sns-wrapper-pc {
+    display: none;
   }
-  .header-righthalf.show {
-    display: flex;
-    transform:translateX(100vw);
-    transition: all 0.3s ease;
+  .sns-wrapper-sp {
+  display: flex;
+}
+}
+@media screen and (min-width: 721px) {
+  .sns-wrapper-pc {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 50px;
+  justify-content: space-between;
+}
+  .sns-wrapper-sp {
+    display: none;
   }
-  .hamburger-menu{
-    width:28px;
-    height:20px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    margin-left:20px;
-    margin-right:20px;
-    @media screen and (min-width: 721px) {
-      display:none;
-    }
-  }
-  .hamburger-bar{
-    width:28px;
-    height:2px;
-    background-color: #AD1A45;
-    border-radius:1px;
-    transition: all 0.3s ease;
-  }
-  .hamburger-bar.show.first{
-    transform:rotate(45deg) translateY(13px);
-    transition: all 0.3s ease;
-  }
-  .hamburger-bar.show.second{
-    display:none;
-  }
-  .hamburger-bar.show.third{
-    transform:rotate(-45deg) translateY(-13px);
-    transition: all 0.3s ease;
-  }
+}
+
+.sns-container {
+  display: flex;
+  align-items: center;
+}
+.sns-logo {
+  width: 30px;
+  margin-right: 10px;
+}
+.horizonal {
+  display: flex;
+  align-items: center;
+  width: 250px;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+.arrow {
+  display: flex;
+  color: #ad1a45;
+  align-items: center;
+}
+.arrow-right {
+  width: 0;
+  height: 0;
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent transparent transparent #ad1a45;
+  margin-left: 10px;
+}
+a {
+  text-decoration: none;
+}
     </style>`;
     const homeButton = this.shadowRoot.querySelector("#home");
     homeButton.addEventListener("click", () => this.goHome());
-    const activityButton = this.shadowRoot.querySelector("#activity");
-    activityButton.addEventListener("click", () => this.goActivity());
-    const faqButton = this.shadowRoot.querySelector("#faq");
-    faqButton.addEventListener("click", () => this.goFaq());
-    const aboutPotatoButton = this.shadowRoot.querySelector("#about-potato");
-    aboutPotatoButton.addEventListener("click", () => this.goAboutPotato());
-    const hamburgerMenu = this.shadowRoot.querySelector(".hamburger-menu");
-    const hamburgerBars = this.shadowRoot.querySelectorAll(".hamburger-bar");
-    const headerRight = this.shadowRoot.querySelector(".header-righthalf");
-    const optionWrappers = this.shadowRoot.querySelectorAll(".option-wrapper");
+    //   const activityButton = this.shadowRoot.querySelector("#activity");
+    //   activityButton.addEventListener("click", () => this.goActivity());
+    //   const faqButton = this.shadowRoot.querySelector("#faq");
+    //   faqButton.addEventListener("click", () => this.goFaq());
+    //   const aboutPotatoButton = this.shadowRoot.querySelector("#about-potato");
+    //   aboutPotatoButton.addEventListener("click", () => this.goAboutPotato());
+    //   const hamburgerMenu = this.shadowRoot.querySelector(".hamburger-menu");
+    //   const hamburgerBars = this.shadowRoot.querySelectorAll(".hamburger-bar");
+    //   const headerRight = this.shadowRoot.querySelector(".header-righthalf");
+    //   const optionWrappers = this.shadowRoot.querySelectorAll(".option-wrapper");
 
-    hamburgerMenu.addEventListener("click", () => {
-      // クラスの切り替え（toggle）
-      headerRight.classList.toggle("show");
-      optionWrappers.forEach((el) => {
-        el.classList.toggle("show");
-      });
-      hamburgerBars.forEach((el) => {
-        el.classList.toggle("show");
-      });
-    });
+    //   hamburgerMenu.addEventListener("click", () => {
+    //     // クラスの切り替え（toggle）
+    //     headerRight.classList.toggle("show");
+    //     optionWrappers.forEach((el) => {
+    //       el.classList.toggle("show");
+    //     });
+    //     hamburgerBars.forEach((el) => {
+    //       el.classList.toggle("show");
+    //     });
+    //   });
   }
 }
 
