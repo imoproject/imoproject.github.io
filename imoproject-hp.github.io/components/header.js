@@ -137,27 +137,6 @@ a {
     </style>`;
     const homeButton = this.shadowRoot.querySelector("#home");
     homeButton.addEventListener("click", () => this.goHome());
-    //   const activityButton = this.shadowRoot.querySelector("#activity");
-    //   activityButton.addEventListener("click", () => this.goActivity());
-    //   const faqButton = this.shadowRoot.querySelector("#faq");
-    //   faqButton.addEventListener("click", () => this.goFaq());
-    //   const aboutPotatoButton = this.shadowRoot.querySelector("#about-potato");
-    //   aboutPotatoButton.addEventListener("click", () => this.goAboutPotato());
-    //   const hamburgerMenu = this.shadowRoot.querySelector(".hamburger-menu");
-    //   const hamburgerBars = this.shadowRoot.querySelectorAll(".hamburger-bar");
-    //   const headerRight = this.shadowRoot.querySelector(".header-righthalf");
-    //   const optionWrappers = this.shadowRoot.querySelectorAll(".option-wrapper");
-
-    //   hamburgerMenu.addEventListener("click", () => {
-    //     // クラスの切り替え（toggle）
-    //     headerRight.classList.toggle("show");
-    //     optionWrappers.forEach((el) => {
-    //       el.classList.toggle("show");
-    //     });
-    //     hamburgerBars.forEach((el) => {
-    //       el.classList.toggle("show");
-    //     });
-    //   });
   }
 }
 
