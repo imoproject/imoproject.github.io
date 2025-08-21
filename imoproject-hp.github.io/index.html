@@ -12,8 +12,10 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
   <body>
-    <header-component></header-component>
-
+    <div class="header-menu">
+      <header-component></header-component>
+      <menu-component class="menu"></menu-component>
+    </div>
     <section>
       <div class="wrapper">
         <h1>About Us</h1>
@@ -34,5 +36,6 @@
 
     <script src="/components/header.js"></script>
     <script src="/components/footer.js"></script>
+    <script src="/components/menu.js"></script>
   </body>
 </html>

@@ -16,8 +16,6 @@ body {
     "Hiragino Sans", "arial", "Meiryo", "MS PGothic", sans-serif;
 }
 header-component {
-  position: fixed;
-  top: 0;
   z-index: 3;
   width: 100%;
 }
@@ -54,4 +52,12 @@ p {
 }
 .wrapper {
   margin: 50px 0;
+}
+.header-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
 }

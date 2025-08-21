@@ -88,6 +88,7 @@ class HeaderComponent extends HTMLElement {
   }
   .sns-wrapper-sp {
   display: flex;
+  margin-right:60px;
 }
 }
 @media screen and (min-width: 721px) {

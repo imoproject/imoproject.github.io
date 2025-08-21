@@ -20,124 +20,155 @@ class MenuComponent extends HTMLElement {
   render() {
     const shadow = this.attachShadow({ mode: "open" });
     shadow.innerHTML = ` 
-    <div class="header">
-      <div class="hamburger-menu">
-        <div class="hamburger-bar first"></div>
-        <div class="hamburger-bar second"></div>
-        <div class="hamburger-bar third"></div>
+    <div class="menu-wrapper">
+    <div class="menu-upper">
+      <div class="MENU">
+        <span class="num1">M</span><span class="num2">E</span
+        ><span class="num3">N</span><span class="num4">U</span>
       </div>
-      <div class="option-wrapper-logo" id="home">
-        <img src="assets/imologo.png" class="imologo" />
-        IMOPROJECT
-      </div>
-      <div class="header-righthalf">
-        <div class="option-wrapper" id="activity">活動内容</div>
-       
-        <div class="option-wrapper" id="faq">よくあるご質問</div>
-       
-        <div class="option-wrapper" id="about-potato">芋についてもっと知りたい方へ</div>
+      <div class="menu-detail">
+        地中に眠る可能性をいま、<br />
+        掘り起こす。<br />
+        ホクホクな最新情報は<br />
+        こちらから！！ <br />今日もお芋を愛でています。
       </div>
     </div>
+    <div class="menu-lower">
+      <div class="item">
+        <div class="icon" id="home">
+          <img src="../assets/instagram.png" class="icon-picture" />
+        </div>
+        <div class="text">HOME</div>
+      </div>
+      <div class="item" id="activity">
+        <div class="icon">
+          <img src="../assets/instagram.png" class="icon-picture" />
+        </div>
+        <div class="text">活動内容</div>
+      </div>
+      <div class="item" id="faq">
+        <div class="icon">
+          <img src="../assets/instagram.png" class="icon-picture" />
+        </div>
+        <div class="text">よくあるご質問</div>
+      </div>
+      <div class="item" id="about-potato">
+        <div class="icon">
+          <img src="../assets/instagram.png" class="icon-picture" />
+        </div>
+        <div class="text">芋について<br />もっと知りたい方へ</div>
+      </div>
+      <div class="item" id="line-stamp">
+        <div class="icon">
+          <img src="../assets/instagram.png" class="icon-picture" />
+        </div>
+        <div class="text">LINEスタンプ</div>
+      </div>
+    </div>
+  </div>
+  <div class="hamburger-menu">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
   <style> 
-  .header {
-    display: flex;
-    width: 100%;
-    height: 4rem;
-    padding: 0 10px;
-    background-color: snow;
-    justify-content: space-between;
-    border-top: 5px solid #AD1A45;
-    border-bottom: 3px solid #AD1A45;
-    @media screen and (max-width: 720px) {
-      justify-content:start;
-      align-items:center;
-    }
-  }
-  .option {
-    font-size: 1rem;
-    margin: 0 2px;
-    color: black;
-    text-decoration: none;
-    transition: 0.3s;
-    display: flex;
-    align-items: center;
-    @media screen and (max-width: 720px) {
-      font-size:1.2rem;
-    }
-  }
-  .option:hover {
-    transform: scale(1.1);
-  }
-  .imologo {
-    height: 2.2rem;
-    margin: 0 10px;
-  }
-  .option-wrapper-logo {
-    height: 100%;
-    width: fit-content;
-    display: flex;
-    align-items: center;
-  }
-  .option-wrapper {
-    height: 100%;
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    @media screen and (max-width: 720px) {
-     margin: 10px 0;
-    }
-  }
-  .header-righthalf {
-    display: flex;
-    width: 65%;
-    justify-content: space-between;
-    padding: 0 5%;
-    @media screen and (max-width: 720px) {
-      background-color:snow;
-      display:flex;
-      flex-direction:column;
-      position:fixed;
-      top:4.25rem;
-      left:-100vw;
-      width:fit-content;
-      transition: all 0.3s ease;
-    }
-  }
-  .header-righthalf.show {
-    display: flex;
-    transform:translateX(100vw);
+  .MENU {
+  background-color: #ad1a45;
+  position: relative;
+  width: 250px;
+  height: 35px;
+}
+span {
+  font-size: 18px;
+  font-weight: bold;
+  height: 70px;
+  position: absolute;
+  color: #fffafa;
+  width: 20px;
+  left: 110px;
+  top: 0;
+  transform-origin: bottom center;
+}
+.num1 {
+  transform: rotate(-9deg) translateX(-20px);
+}
+.num2 {
+  transform: rotate(-5deg) translateX(-3px);
+}
+.num3 {
+  transform: rotate(5deg) translateX(3px) translateY(1px);
+}
+.num4 {
+  transform: rotate(12deg) translateX(13px) translateY(1px);
+}
+.menu-lower {
+  width: max-content;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.menu-detail {
+  color: #75464c;
+  background-color: #c48696;
+  padding: 10px;
+  width: 230px;
+  border-radius: 0 0 14px 14px;
+  text-align: center;
+}
+.item {
+  display: flex;
+  align-items: center;
+}
+.icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+}
+.icon-picture {
+  width: 40px;
+}
+.text {
+  color: #ad1a45;
+  background-color: #fffafa;
+  padding: 10px;
+  width: 160px;
+  text-align: center;
+  border-radius: 0 20px 20px 0;
+}
+.menu-wrapper {
+  transition: all 0.3s ease;
+}
+.hamburger-menu {
+  display: none;
+}
+@media screen and (max-width: 720px) {
+  .menu-wrapper {
+    transform: translateX(-100%);
     transition: all 0.3s ease;
   }
-  .hamburger-menu{
-    width:28px;
-    height:20px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    margin-left:20px;
-    margin-right:20px;
-    @media screen and (min-width: 721px) {
-      display:none;
-    }
+  .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 3;
   }
-  .hamburger-bar{
-    width:28px;
-    height:2px;
-    background-color: #AD1A45;
-    border-radius:1px;
-    transition: all 0.3s ease;
+  .bar {
+    width: 30px;
+    height: 3px;
+    background-color: #ad1a45;
+    margin: 4px 0;
+    border-radius: 1px;
   }
-  .hamburger-bar.show.first{
-    transform:rotate(45deg) translateY(13px);
-    transition: all 0.3s ease;
-  }
-  .hamburger-bar.show.second{
-    display:none;
-  }
-  .hamburger-bar.show.third{
-    transform:rotate(-45deg) translateY(-13px);
-    transition: all 0.3s ease;
-  }
+}
     </style>`;
     const homeButton = this.shadowRoot.querySelector("#home");
     homeButton.addEventListener("click", () => this.goHome());
