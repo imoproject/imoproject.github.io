@@ -36,37 +36,37 @@ class MenuComponent extends HTMLElement {
     <div class="menu-lower">
       <div class="item">
         <div class="icon" id="home">
-          <img src="../assets/instagram.png" class="icon-picture" />
+          <img src="../assets/instagram.svg" class="icon-picture" />
         </div>
         <div class="text">HOME</div>
       </div>
       <div class="item" id="activity">
         <div class="icon">
-          <img src="../assets/instagram.png" class="icon-picture" />
+          <img src="../assets/instagram.svg" class="icon-picture" />
         </div>
         <div class="text">活動内容</div>
       </div>
       <div class="item" id="faq">
         <div class="icon">
-          <img src="../assets/instagram.png" class="icon-picture" />
+          <img src="../assets/instagram.svg" class="icon-picture" />
         </div>
         <div class="text">よくあるご質問</div>
       </div>
       <div class="item" id="about-potato">
         <div class="icon">
-          <img src="../assets/instagram.png" class="icon-picture" />
+          <img src="../assets/instagram.svg" class="icon-picture" />
         </div>
         <div class="text">芋について<br />もっと知りたい方へ</div>
       </div>
       <div class="item" id="line-stamp">
         <div class="icon">
-          <img src="../assets/instagram.png" class="icon-picture" />
+          <img src="../assets/instagram.svg" class="icon-picture" />
         </div>
         <div class="text">LINEスタンプ</div>
       </div>
     </div>
   </div>
-  <div class="hamburger-menu">
+  <div class="hamburger-menu" id="hamburger-menu">
     <div class="bar"></div>
     <div class="bar"></div>
     <div class="bar"></div>
@@ -153,6 +153,15 @@ span {
     transform: translateX(-100%);
     transition: all 0.3s ease;
   }
+  .menu-wrapper.show {
+    transform: translateX(0);
+    transition: all 0.3s ease;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: lightgray;
+    height:100vh;
+  }
   .hamburger-menu {
     display: flex;
     flex-direction: column;
@@ -178,20 +187,24 @@ span {
     faqButton.addEventListener("click", () => this.goFaq());
     const aboutPotatoButton = this.shadowRoot.querySelector("#about-potato");
     aboutPotatoButton.addEventListener("click", () => this.goAboutPotato());
-    const hamburgerMenu = this.shadowRoot.querySelector(".hamburger-menu");
-    const hamburgerBars = this.shadowRoot.querySelectorAll(".hamburger-bar");
-    const headerRight = this.shadowRoot.querySelector(".header-righthalf");
-    const optionWrappers = this.shadowRoot.querySelectorAll(".option-wrapper");
+    const hamburgerMenu = this.shadowRoot.querySelector("#hamburger-menu");
+    //const hamburgerBars = this.shadowRoot.querySelectorAll(".hamburger-bar");
+    const menuWrapper = this.shadowRoot.querySelector(".menu-wrapper");
+    const menuUpper = this.shadowRoot.querySelector(".menu-upper");
+    const menuLower = this.shadowRoot.querySelector(".menu-lower");
 
     hamburgerMenu.addEventListener("click", () => {
       // クラスの切り替え（toggle）
-      headerRight.classList.toggle("show");
+      alert("押されたよ");
+      menuWrapper.classList.toggle("show");
+      menuUpper.classList.toggle("show");
+      menuLower.classList.toggle("show");
       optionWrappers.forEach((el) => {
         el.classList.toggle("show");
       });
-      hamburgerBars.forEach((el) => {
-        el.classList.toggle("show");
-      });
+      // hamburgerBars.forEach((el) => {
+      //   el.classList.toggle("show");
+      // });
     });
   }
 }
