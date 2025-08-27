@@ -60,7 +60,7 @@ class MenuComponent extends HTMLElement {
       </div>
       <div class="item" id="line-stamp">
         <div class="icon">
-          <img src="../assets/instagram.svg" class="icon-picture" />
+          <img src="../assets/line-stamp.png" class="icon-picture" />
         </div>
         <div class="text">LINEスタンプ</div>
       </div>
@@ -129,14 +129,14 @@ span {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: blue;
+  background-color: #f6d893;
 }
 .icon-picture {
   width: 40px;
 }
 .text {
   color: #ad1a45;
-  background-color: #fffafa;
+  background-color: #f6f2e7;
   padding: 10px;
   width: 160px;
   text-align: center;
