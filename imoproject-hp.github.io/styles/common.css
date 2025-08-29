@@ -1,32 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap");
+
 body {
-  background-color: blanchedalmond;
+  background-color: #ffebcd;
   z-index: -1;
   margin: 0;
   font-family: "Hiragino maru Gothic ProN W4", "Hiragino Kaku Gothic Pro",
     "Hiragino Sans", "arial", "Meiryo", "MS PGothic", sans-serif;
 }
-section {
-  width: 60vw;
-  height: 100px;
-  margin-right: 10vw;
-  margin-left: auto;
+
+.home-picture1 {
+  z-index: -3;
+  opacity: 0.5;
 }
+
+.home-picture2 {
+  width: 200px;
+  position: fixed;
+  right: 0;
+  bottom: -10px;
+  transform: scaleX(-1);
+}
+
 @media screen and (min-width: 721px) {
   html {
     font-size: 15px;
+  }
+  section {
+    width: 50vw;
+    min-width: 100px;
+    margin-top: 120px;
+    margin-right: 10vw;
+    margin-left: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .home-picture1 {
+    width: 300px;
+    position: fixed;
+    left: 25vw;
+    top: 50vh;
   }
 }
 @media screen and (max-width: 720px) {
   html {
     font-size: 12px;
   }
-}
-header-component {
-  z-index: 3;
-  width: 100%;
-}
-.upper-space {
-  height: 20vh;
+  section {
+    width: 70vw;
+    margin-top: 120px;
+    margin-left: 15vw;
+    margin-right: 15vw;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .home-picture1 {
+    width: 200px;
+    position: fixed;
+    left: 5vw;
+    top: 40vh;
+  }
 }
 h1 {
   color: #ad1a45;
@@ -48,6 +82,7 @@ h2 {
   width: fit-content;
   margin: auto;
   border-bottom: 3px solid #ad1a45;
+  font-family: "Noto Serif JP", serif;
 }
 p {
   font-size: 1rem;
