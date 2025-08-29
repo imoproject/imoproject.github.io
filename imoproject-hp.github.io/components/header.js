@@ -28,13 +28,13 @@ class HeaderComponent extends HTMLElement {
     <div class="sns-wrapper-pc">
       公式SNS
       <div class="horizonal">
-        <div class="sns-container">
+        <a href="https://www.instagram.com/imoproject.ut/" target="_blank" class="sns-container">
           <img src="../assets/instagram.svg" class="sns-logo" />
           <div class="arrow">
             Instagram
             <div class="arrow-right"></div>
           </div>
-        </div>
+        </a>
        <a href="https://x.com/imoproject_ut" target="_blank" class="sns-container">
   <img src="../assets/X.png" class="sns-logo" />
   <div class="arrow">
@@ -68,6 +68,9 @@ class HeaderComponent extends HTMLElement {
   border-width: 15px 0 10px 0;
   border-color: #ad1a45;
   border-style: solid;
+}
+  .sns-container:hover {
+  cursor: pointer;
 }
 
 

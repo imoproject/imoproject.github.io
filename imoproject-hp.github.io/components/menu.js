@@ -35,26 +35,26 @@ class MenuComponent extends HTMLElement {
     </div>
     <div class="menu-lower">
       <div class="item">
-        <div class="icon" id="home">
-          <img src="../assets/instagram.svg" class="icon-picture" />
+        <div class="icon-logo" id="home">
+          <img src="../assets/imologo2.svg" class="icon-picture-logo" />
         </div>
         <div class="text">HOME</div>
       </div>
       <div class="item" id="activity">
         <div class="icon">
-          <img src="../assets/instagram.svg" class="icon-picture" />
+          <img src="../assets/imo1.png" class="icon-picture" />
         </div>
         <div class="text">活動内容</div>
       </div>
       <div class="item" id="faq">
         <div class="icon">
-          <img src="../assets/instagram.svg" class="icon-picture" />
+          <img src="../assets/imo2.png" class="icon-picture" />
         </div>
         <div class="text">よくあるご質問</div>
       </div>
       <div class="item" id="about-potato">
         <div class="icon">
-          <img src="../assets/instagram.svg" class="icon-picture" />
+          <img src="../assets/imo1.png" class="icon-picture" />
         </div>
         <div class="text">芋について<br />もっと知りたい方へ</div>
       </div>
@@ -131,12 +131,26 @@ span {
   align-items: center;
   background-color: #f6d893;
 }
+.icon-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ad1a45;
+}
 .icon-picture {
-  width: 40px;
+  width: 60px;
+  border-radius: 10px;
+}
+.icon-picture-logo {
+  width: 50px;
+  border-radius: 10px;
 }
 .text {
   color: #ad1a45;
-  background-color: #f6f2e7;
+  background-color: white;
   padding: 10px;
   width: 160px;
   text-align: center;
@@ -159,7 +173,7 @@ span {
     display:flex;
     flex-direction: column;
     align-items: center;
-    background-color: lightgray;
+    background-color: #f6f2e7;
     height:100vh;
   }
   .hamburger-menu {
@@ -194,17 +208,12 @@ span {
     const menuLower = this.shadowRoot.querySelector(".menu-lower");
 
     hamburgerMenu.addEventListener("click", () => {
-      // クラスの切り替え（toggle）
-      alert("押されたよ");
       menuWrapper.classList.toggle("show");
       menuUpper.classList.toggle("show");
       menuLower.classList.toggle("show");
       optionWrappers.forEach((el) => {
         el.classList.toggle("show");
       });
-      // hamburgerBars.forEach((el) => {
-      //   el.classList.toggle("show");
-      // });
     });
   }
 }
