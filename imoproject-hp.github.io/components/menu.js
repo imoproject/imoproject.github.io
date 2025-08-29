@@ -158,6 +158,7 @@ span {
 }
 .menu-wrapper {
   transition: all 0.3s ease;
+  z-index:10;
 }
 .hamburger-menu {
   display: none;

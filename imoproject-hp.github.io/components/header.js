@@ -68,6 +68,7 @@ class HeaderComponent extends HTMLElement {
   border-width: 15px 0 10px 0;
   border-color: #ad1a45;
   border-style: solid;
+  z-index:10;
 }
   .sns-container:hover {
   cursor: pointer;
