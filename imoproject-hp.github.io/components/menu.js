@@ -17,6 +17,9 @@ class MenuComponent extends HTMLElement {
   goAboutPotato() {
     window.location.href = "about-potato.html";
   }
+  goLine() {
+    window.location.href = "line.html";
+  }
   render() {
     const shadow = this.attachShadow({ mode: "open" });
     shadow.innerHTML = ` 
@@ -34,8 +37,8 @@ class MenuComponent extends HTMLElement {
       </div>
     </div>
     <div class="menu-lower">
-      <div class="item">
-        <div class="icon-logo" id="home">
+      <div class="item" id="home">
+        <div class="icon-logo" >
           <img src="../assets/imologo2.svg" class="icon-picture-logo" />
         </div>
         <div class="text">HOME</div>
@@ -156,6 +159,9 @@ span {
   text-align: center;
   border-radius: 0 20px 20px 0;
 }
+  .item:hover{
+  cursor: pointer;
+  }
 .menu-wrapper {
   transition: all 0.3s ease;
   z-index:10;
@@ -200,6 +206,8 @@ span {
     activityButton.addEventListener("click", () => this.goActivity());
     const faqButton = this.shadowRoot.querySelector("#faq");
     faqButton.addEventListener("click", () => this.goFaq());
+    const lineButton = this.shadowRoot.querySelector("#line-stamp");
+    lineButton.addEventListener("click", () => this.goLine());
     const aboutPotatoButton = this.shadowRoot.querySelector("#about-potato");
     aboutPotatoButton.addEventListener("click", () => this.goAboutPotato());
     const hamburgerMenu = this.shadowRoot.querySelector("#hamburger-menu");

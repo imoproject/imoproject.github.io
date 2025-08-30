@@ -33,6 +33,41 @@ body {
   transform: scaleX(-1);
   z-index: 3;
 }
+.horizontal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Q {
+  color: white;
+  background-color: #f8b500;
+  width: 2rem;
+  min-width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+.A {
+  color: white;
+  background-color: #ad1a45;
+  width: 2rem;
+  min-width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+.small-wrapper {
+  margin: 5vh 0;
+}
+.header-menu {
+  z-index: 10;
+}
 
 @media screen and (min-width: 721px) {
   html {
@@ -40,6 +75,7 @@ body {
   }
   section {
     width: 50vw;
+    max-width: 50vw;
     min-width: 100px;
     margin-top: 120px;
     margin-right: 10vw;
@@ -62,6 +98,14 @@ body {
     opacity: 1;
     z-index: 3;
   }
+  .faq-picture1 {
+    width: 200px;
+    position: fixed;
+    left: 25vw;
+    bottom: 0;
+    opacity: 1;
+    z-index: 3;
+  }
 }
 @media screen and (max-width: 720px) {
   html {
@@ -69,6 +113,7 @@ body {
   }
   section {
     width: 70vw;
+    max-width: 70vw;
     margin-top: 120px;
     margin-left: 15vw;
     margin-right: 15vw;
@@ -81,6 +126,12 @@ body {
     position: fixed;
     left: 5vw;
     top: 40vh;
+  }
+  .faq-picture1 {
+    width: 80px;
+    position: fixed;
+    left: 5vw;
+    bottom: 0;
   }
   .activity-picture6 {
     display: none;
@@ -124,4 +175,25 @@ p {
   display: flex;
   width: 100%;
   flex-direction: column;
+}
+.line-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 25px;
+  background-color: white;
+  border-radius: 10px;
+}
+.line-wrapper img {
+  width: 100px;
+  height: auto;
+  margin-right: 10px;
+}
+.line-wrapper p {
+  font-size: 1rem;
+  color: #333;
+}
+a {
+  appearance: none;
+  text-decoration: none;
 }
