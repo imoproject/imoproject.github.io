@@ -152,7 +152,7 @@ span {
   border-radius: 10px;
 }
 .text {
-  color: #ad1a45;
+  color: black;
   background-color: white;
   padding: 10px;
   width: 160px;

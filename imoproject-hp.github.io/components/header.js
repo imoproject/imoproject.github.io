@@ -125,7 +125,7 @@ class HeaderComponent extends HTMLElement {
 }
 .arrow {
   display: flex;
-  color: #ad1a45;
+  color: black;
   align-items: center;
 }
 .arrow-right {
@@ -133,7 +133,7 @@ class HeaderComponent extends HTMLElement {
   height: 0;
   border-width: 8px;
   border-style: solid;
-  border-color: transparent transparent transparent #ad1a45;
+  border-color: transparent transparent transparent black;
   margin-left: 10px;
 }
 a {
