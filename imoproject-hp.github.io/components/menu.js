@@ -53,7 +53,7 @@ class MenuComponent extends HTMLElement {
         <div class="icon">
           <img src="../assets/imo2.png" class="icon-picture" />
         </div>
-        <div class="text">よくあるご質問</div>
+        <div class="text">よくあるご質問<br />入会希望の方へ</div>
       </div>
       <div class="item" id="about-potato">
         <div class="icon">
