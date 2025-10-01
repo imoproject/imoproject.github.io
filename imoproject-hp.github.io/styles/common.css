@@ -197,3 +197,6 @@ a {
   appearance: none;
   text-decoration: none;
 }
+.bold {
+  font-weight: bold;
+}
