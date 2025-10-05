@@ -1,32 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap");
+
+body {
+  background-color: #ffebcd;
+  z-index: -1;
+  margin: 0;
+  font-family: "Hiragino maru Gothic ProN W4", "Hiragino Kaku Gothic Pro",
+    "Hiragino Sans", "arial", "Meiryo", "MS PGothic", sans-serif;
+}
+
+.home-picture1 {
+  z-index: -3;
+  opacity: 0.5;
+}
+
+.home-picture2 {
+  width: 200px;
+  position: fixed;
+  right: 0;
+  bottom: -10px;
+  transform: scaleX(-1);
+}
+.activity-picture {
+  width: 100%;
+  margin: 2vh 0 6vh 0;
+}
+.activity-picture7 {
+  width: 100px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  opacity: 1;
+  transform: scaleX(-1);
+  z-index: 3;
+}
+.horizontal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Q {
+  color: white;
+  background-color: #f8b500;
+  width: 2rem;
+  min-width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+.A {
+  color: white;
+  background-color: #ad1a45;
+  width: 2rem;
+  min-width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+.small-wrapper {
+  margin: 5vh 0;
+}
+.header-menu {
+  z-index: 10;
+}
+
 @media screen and (min-width: 721px) {
   html {
     font-size: 15px;
+  }
+  section {
+    width: 50vw;
+    max-width: 50vw;
+    min-width: 100px;
+    margin-top: 120px;
+    margin-right: 10vw;
+    margin-left: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .home-picture1 {
+    width: 300px;
+    position: fixed;
+    left: 25vw;
+    top: 50vh;
+  }
+  .activity-picture6 {
+    width: 100px;
+    position: fixed;
+    left: 25vw;
+    bottom: 0;
+    opacity: 1;
+    z-index: 3;
+  }
+  .faq-picture1 {
+    width: 200px;
+    position: fixed;
+    left: 25vw;
+    bottom: 0;
+    opacity: 1;
+    z-index: 3;
   }
 }
 @media screen and (max-width: 720px) {
   html {
     font-size: 12px;
   }
-}
-body {
-  background-color: blanchedalmond;
-  z-index: -1;
-  margin: 0;
-  font-family: "Hiragino maru Gothic ProN W4", "Hiragino Kaku Gothic Pro",
-    "Hiragino Sans", "arial", "Meiryo", "MS PGothic", sans-serif;
-}
-header-component {
-  position: fixed;
-  top: 0;
-  z-index: 3;
-  width: 100%;
-}
-.upper-space {
-  height: 20vh;
+  section {
+    width: 70vw;
+    max-width: 70vw;
+    margin-top: 120px;
+    margin-left: 15vw;
+    margin-right: 15vw;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .home-picture1 {
+    width: 200px;
+    position: fixed;
+    left: 5vw;
+    top: 40vh;
+  }
+  .faq-picture1 {
+    width: 80px;
+    position: fixed;
+    left: 5vw;
+    bottom: 0;
+  }
+  .activity-picture6 {
+    display: none;
+  }
 }
 h1 {
   color: #ad1a45;
-  font-size: 2rem;
+  font-size: 1.5rem;
   display: flex;
   justify-content: center;
   font-family: "Inter";
@@ -34,17 +147,17 @@ h1 {
   margin-bottom: 0px;
 }
 h2 {
-  color: #828282;
-  font-size: 1rem;
+  color: black;
+  font-size: 2rem;
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 25px;
-}
-section {
-  width: 80vw;
+  padding-bottom: 1.5px;
+  width: fit-content;
   margin: auto;
-  margin-top: 100px;
+  border-bottom: 3px solid #ad1a45;
+  font-family: "Noto Serif JP", serif;
 }
 p {
   font-size: 1rem;
@@ -54,4 +167,36 @@ p {
 }
 .wrapper {
   margin: 50px 0;
+}
+.header-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+.line-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 25px;
+  background-color: white;
+  border-radius: 10px;
+}
+.line-wrapper img {
+  width: 100px;
+  height: auto;
+  margin-right: 10px;
+}
+.line-wrapper p {
+  font-size: 1rem;
+  color: #333;
+}
+a {
+  appearance: none;
+  text-decoration: none;
+}
+.bold {
+  font-weight: bold;
 }
