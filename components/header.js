@@ -46,8 +46,8 @@ class HeaderComponent extends HTMLElement {
       </div>
     </div>
     <div class="sns-wrapper-sp">
-      <img src="../assets/instagram.svg" class="sns-logo" />
-      <img src="../assets/X.png" class="sns-logo" />
+       <a href="https://www.instagram.com/imoproject.ut/" target="_blank" class="sns-container"><img src="../assets/instagram.svg" class="sns-logo" /></a>
+       <a href="https://x.com/imoproject_ut" target="_blank" class="sns-container"><img src="../assets/X.png" class="sns-logo" /></a>
     </div>
   </div>
   <style> 
