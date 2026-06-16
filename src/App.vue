@@ -1,8 +1,7 @@
 <template>
-  <div class="fixed">
-    <Header :open="isMenuOpen" @toggle-menu="toggleMenu" />
-    <Sidemenu :open="isMenuOpen" @toggle-menu="toggleMenu" />
-  </div>
+  <Header :open="isMenuOpen" @toggle-menu="toggleMenu" />
+  <Sidemenu :open="isMenuOpen" @toggle-menu="toggleMenu" />
+
   <router-view class="router-view" />
 </template>
 
@@ -31,12 +30,5 @@ const toggleMenu = () => {
   .router-view {
     margin: 100px 10%;
   }
-}
-.fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
 </style>

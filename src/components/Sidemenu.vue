@@ -151,6 +151,9 @@ const emit = defineEmits<{
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: fixed;
+  left: 0;
+  top: 110px;
 }
 .hamburger-menu {
   display: none;
@@ -158,11 +161,16 @@ const emit = defineEmits<{
 @media screen and (max-width: 720px) {
   .menu-wrapper {
     transform: translateX(-100%);
+    position: fixed;
+    top: 70px;
   }
   .menu-wrapper.show {
     transform: translateX(0);
     background-color: rgba(246, 242, 231, 0.7);
     height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 70px;
   }
 }
 </style>

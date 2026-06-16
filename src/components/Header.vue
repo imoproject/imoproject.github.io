@@ -60,98 +60,150 @@
 </template>
 
 <style scoped>
+/* =========================
+   Header
+========================= */
+.header-wrapper {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: space-between;
+
+  background-color: #fffafa;
+
+  border-style: solid;
+  border-color: #ad1a45;
+
+  z-index: 10;
+}
+
+/* =========================
+   Logo
+========================= */
+.logo-container {
+  display: flex;
+  align-items: center;
+
+  font-size: 20px;
+}
+
 .imologo {
   width: 40px;
   margin-right: 10px;
 }
-.logo-container {
+
+.title {
+  font-family: "irohamaru", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ad1a45;
+}
+
+/* =========================
+   SNS
+========================= */
+.sns-container {
   display: flex;
   align-items: center;
-  font-size: 20px;
 }
-.header-wrapper {
-  background-color: #fffafa;
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 40px;
-  border-width: 15px 0 10px 0;
-  border-color: #ad1a45;
-  border-style: solid;
-  z-index: 10;
-}
+
 .sns-container:hover {
   cursor: pointer;
 }
-.title {
-  font-family: "irohamaru", sans-serif;
-  color: #ad1a45;
-  font-weight: bold;
-  font-size: 24px;
+
+.sns-logo {
+  width: 30px;
+  margin-right: 10px;
 }
 
+.horizonal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 250px;
+  margin-top: 5px;
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+
+  color: black;
+}
+
+.arrow-right {
+  width: 0;
+  height: 0;
+
+  margin-left: 10px;
+
+  border-style: solid;
+  border-width: 8px;
+  border-color: transparent transparent transparent black;
+}
+
+/* =========================
+   Link
+========================= */
+a {
+  text-decoration: none;
+}
+
+/* =========================
+   Mobile
+========================= */
 @media screen and (max-width: 720px) {
+  .header-wrapper {
+    padding: 12px 18px;
+    border-width: 5px 0;
+    height: 70px;
+  }
+
+  .logo-container {
+    font-size: 15px;
+  }
+
   .imologo {
     width: 30px;
     margin-right: 7px;
   }
-  .logo-container {
-    font-size: 15px;
-  }
-  .header-wrapper {
-    padding: 12px 18px;
-    border-width: 8px 0 5px 0;
-  }
+
   .sns-wrapper-pc {
     display: none;
   }
+
   .sns-wrapper-sp {
     display: flex;
     align-items: center;
   }
 }
+
+/* =========================
+   Desktop
+========================= */
 @media screen and (min-width: 721px) {
+  .header-wrapper {
+    border-width: 10px 0;
+    padding: 20px 40px;
+    height: 110px;
+  }
+
   .sns-wrapper-pc {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+
     width: 250px;
     height: 50px;
-    justify-content: space-between;
   }
+
   .sns-wrapper-sp {
     display: none;
   }
-}
-
-.sns-container {
-  display: flex;
-  align-items: center;
-}
-.sns-logo {
-  width: 30px;
-  margin-right: 10px;
-}
-.horizonal {
-  display: flex;
-  align-items: center;
-  width: 250px;
-  justify-content: space-between;
-  margin-top: 5px;
-}
-.arrow {
-  display: flex;
-  color: black;
-  align-items: center;
-}
-.arrow-right {
-  width: 0;
-  height: 0;
-  border-width: 8px;
-  border-style: solid;
-  border-color: transparent transparent transparent black;
-  margin-left: 10px;
-}
-a {
-  text-decoration: none;
 }
 
 /*ここからハンバーガーメニュー*/

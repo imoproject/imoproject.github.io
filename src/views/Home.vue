@@ -50,7 +50,7 @@
 
 <script setup lang="ts"></script>
 
-<style scoped>
+<style scoped lang="scss">
 @media screen and (max-width: 720px) {
   section {
     margin-bottom: 0 !important;
