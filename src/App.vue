@@ -1,13 +1,42 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link>
-    <router-link to="/activity">Activity</router-link>
-  </nav>
-  <router-view />
+  <div class="fixed">
+    <Header :open="isMenuOpen" @toggle-menu="toggleMenu" />
+    <Sidemenu :open="isMenuOpen" @toggle-menu="toggleMenu" />
+  </div>
+  <router-view class="router-view" />
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Header from "./components/Header.vue";
+import Sidemenu from "./components/Sidemenu.vue";
 
-<style scoped>
-/* 必要ならデザインを追加 */
+import { ref } from "vue";
+
+const isMenuOpen = ref(false);
+
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value;
+};
+</script>
+
+<style scoped lang="scss">
+@media screen and (min-width: 721px) {
+  .router-view {
+    margin-left: 350px;
+    margin-top: 150px;
+    padding: 20px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .router-view {
+    margin: 100px 10%;
+  }
+}
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 </style>

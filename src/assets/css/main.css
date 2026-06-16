@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap");
+
+@font-face {
+  font-family: "irohamaru"; /*任意のフォントファミリー名でOK*/
+  src: url("../fonts/irohamaru-Regular.ttf"); /*fontがあるパスを書いて、formatを指定*/
+  font-display: swap; /*ダウンロード状況に応じてフォントの表示を変える */
+}
+
+body {
+  background-color: #ffebcd;
+  z-index: -1;
+  margin: 0;
+  font-family:
+    "Hiragino maru Gothic ProN W4", "Hiragino Kaku Gothic Pro", "Hiragino Sans",
+    "arial", "Meiryo", "MS PGothic", sans-serif;
+}
+
+h1 {
+  color: #ad1a45;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  font-family: "Inter";
+  margin-top: 40px;
+  margin-bottom: 0px;
+}
+h2 {
+  color: black;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  padding-bottom: 1.5px;
+  width: fit-content;
+  margin: auto;
+  border-bottom: 3px solid #ad1a45;
+  font-family: "Kiwi Maru", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+h2 .english {
+  font-family: "irohamaru", sans-serif;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.8;
+  display: flex;
+  justify-content: center;
+}
