@@ -1,96 +1,151 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import GamemenuItem from "../../components/GamemenuItem.vue";
+
+const gameMenu: {
+  // ここに必要なpropsの型を定義
+  label: string;
+  link: string;
+  backgroundColor?: string;
+  size?: string;
+  disable?: boolean;
+}[] = [
+  { label: "あなたにおすすめの\nお芋診断", link: "/finder" },
+  { label: "整備中", link: "/test", disable: true, backgroundColor: "gray" },
+  { label: "整備中", link: "/test", disable: true, backgroundColor: "gray" },
+];
+</script>
 
 <template>
-  <div class="menu-wrapper">あああ</div>
+  <section>
+    <h1>About Potato</h1>
+    <h2>芋について<br />もっと知りたい方へ</h2>
+    <p>まだまだ整備中ですが良かったら遊んでいってね！</p>
+    <div style="display: flex; flex-direction: column; align-items: center">
+      <div class="whole-wrapper">
+        <div class="game left">
+          <div class="button border"></div>
+          <div class="button stripe"></div>
+        </div>
+        <div class="game center">
+          <div class="screen">
+            <GamemenuItem
+              v-for="(item, index) in gameMenu"
+              :key="item.label"
+              :label="item.label"
+              :link="item.link"
+              :backgroundColor="item.backgroundColor"
+              :size="item.size"
+              :disable="item.disable"
+            />
+          </div>
+        </div>
+        <div class="game right">
+          <div class="button2-wrapper">
+            <div class="button2"></div>
+            <div class="button2"></div>
+            <div class="button2"></div>
+            <div class="button2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img src="../../assets/images/game.png" class="game-img" />
+  </section>
 </template>
 
-<style>
-/* 上部MENUの文字部分*/
-.MENU {
+<style scoped lang="scss">
+.whole-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5vh;
+  width: 100%;
+  min-width: 1235px;
+}
+
+.game {
+  height: 60vh;
   background-color: #ad1a45;
+  border-width: 2px;
+  border-style: solid;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+.right {
+  width: 20%;
+  border-radius: 0 20vh 20vh 0;
+  border-color: black black black transparent;
+  position: relative;
+}
+.left {
+  width: 20%;
+  border-radius: 20vh 0 0 20vh;
+  border-color: black transparent black black;
+  position: relative;
+}
+.center {
+  width: 50%;
   display: flex;
   justify-content: center;
-  width: 100%;
-  height: 35px;
+  align-items: center;
+  border-color: black transparent black transparent;
 }
-.MENU span {
-  font-size: 18px;
-  font-weight: bold;
+.screen {
+  width: 120%;
+  height: 85%;
+  background-color: aliceblue;
+  border: 10px solid gray;
+  border-radius: 10px;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.button {
+  background-color: gray;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.border {
+  width: 150px;
+  height: 50px;
+}
+.stripe {
+  width: 50px;
+  height: 150px;
+}
+.button2 {
+  background-color: gray;
+  border-radius: 50%;
+  width: 70px;
   height: 70px;
+}
+.button2-wrapper {
+  width: 170px;
+  height: 170px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fffafa;
-  width: 20px;
-  left: 110px;
-  top: 0;
-  transform-origin: bottom center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
 }
-.num1 {
-  transform: rotate(-9deg) translateX(-10px) translateY(-19px);
-}
-.num2 {
-  transform: rotate(-5deg) translateX(-2px) translateY(-19px);
-}
-.num3 {
-  transform: rotate(5deg) translateX(0px) translateY(-19px);
-}
-.num4 {
-  transform: rotate(12deg) translateX(3px) translateY(-17px);
-}
-/*サブタイトル部分*/
-.menu-detail {
-  color: #75464c;
-  background-color: #c48696;
-  padding: 10px;
-  width: calc(100% - 20px);
-  border-radius: 0 0 14px 14px;
-  text-align: center;
-}
-/*上部まとめ*/
-.menu-upper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-  width: 100%;
-}
-/*下部まとめ*/
-.menu-lower {
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  margin-top: 10px;
-}
-/*全体*/
-.menu-wrapper {
-  width: 300px;
-  transition: all 0.3s ease;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.game-img {
+  width: 250px;
   position: fixed;
-  left: 0;
-  top: 110px;
+  bottom: -10px;
+  right: 5vw;
 }
-.hamburger-menu {
-  display: none;
-}
-@media screen and (max-width: 720px) {
-  .menu-wrapper {
-    transform: translateX(-100%);
-    position: fixed;
-    top: 70px;
-  }
-  .menu-wrapper.show {
-    transform: translateX(0);
-    background-color: rgba(246, 242, 231, 0.7);
-    height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 70px;
+@media (max-width: 768px) {
+  .whole-wrapper {
+    transform: scale(0.3);
+    transform-origin: top center;
+    margin-top: 0;
   }
 }
 </style>

@@ -86,7 +86,6 @@
 .logo-container {
   display: flex;
   align-items: center;
-
   font-size: 20px;
 }
 
