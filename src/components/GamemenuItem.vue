@@ -5,6 +5,7 @@
       :class="{ active: !props.disable }"
       :style="{ backgroundColor: props.backgroundColor || '#f6b12b' }"
       :disabled="props.disable || false"
+      @click.prevent="startGame"
     >
       {{ props.label }}
     </button>
@@ -48,4 +49,12 @@ const props = defineProps<{
   size?: string;
   disable?: boolean;
 }>();
+
+const emit = defineEmits<{
+  start: [];
+}>();
+
+const startGame = () => {
+  emit("start");
+};
 </script>

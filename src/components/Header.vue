@@ -160,6 +160,7 @@ a {
     padding: 12px 18px;
     border-width: 5px 0;
     height: 70px;
+    width: 100vw;
   }
 
   .logo-container {

@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import GamemenuItem from "../../components/GamemenuItem.vue";
+import { useRouter } from "vue-router";
+import { ref } from "vue";
 
 const gameMenu: {
   // ここに必要なpropsの型を定義
@@ -13,15 +15,26 @@ const gameMenu: {
   { label: "整備中", link: "/test", disable: true, backgroundColor: "gray" },
   { label: "整備中", link: "/test", disable: true, backgroundColor: "gray" },
 ];
+
+const router = useRouter();
+const isStarting = ref(false);
+
+const startGame = async (link: string) => {
+  isStarting.value = true;
+
+  setTimeout(() => {
+    router.push(link);
+  }, 800);
+};
 </script>
 
 <template>
-  <section>
+  <section :class="{ fadeout: isStarting }">
     <h1>About Potato</h1>
     <h2>芋について<br />もっと知りたい方へ</h2>
     <p>まだまだ整備中ですが良かったら遊んでいってね！</p>
     <div style="display: flex; flex-direction: column; align-items: center">
-      <div class="whole-wrapper">
+      <div class="whole-wrapper" :class="{ zoomout: isStarting }">
         <div class="game left">
           <div class="button border"></div>
           <div class="button stripe"></div>
@@ -36,6 +49,7 @@ const gameMenu: {
               :backgroundColor="item.backgroundColor"
               :size="item.size"
               :disable="item.disable"
+              @start="startGame(item.link)"
             />
           </div>
         </div>
@@ -61,6 +75,15 @@ const gameMenu: {
   margin-top: 5vh;
   width: 100%;
   min-width: 1235px;
+
+  transition:
+    transform 0.8s ease,
+    opacity 0.8s ease;
+}
+
+.whole-wrapper.zoomout {
+  transform: scale(3);
+  opacity: 0;
 }
 
 .game {
@@ -141,6 +164,16 @@ const gameMenu: {
   bottom: -10px;
   right: 5vw;
 }
+
+section {
+  transition: ease 0.3s;
+}
+
+section.fadeout {
+  opacity: 0;
+  transition: ease 0.3s;
+}
+
 @media (max-width: 768px) {
   .whole-wrapper {
     transform: scale(0.3);
