@@ -13,7 +13,9 @@
       </p>
     </div>
     <div class="wrapper">
-      <a href="https://store.line.me/stickershop/product/24031211/ja"
+      <a
+        href="https://store.line.me/stickershop/product/24031211/ja"
+        target="_blank"
         ><div class="line-wrapper">
           <img src="../assets/images/line1.png" class="line-picture2" />
           <p>
@@ -23,7 +25,9 @@
           </p>
         </div></a
       >
-      <a href=" https://store.line.me/stickershop/product/25743771/ja"
+      <a
+        href=" https://store.line.me/stickershop/product/25743771/ja"
+        target="_blank"
         ><div class="line-wrapper">
           <img src="../assets/images/line2.png" class="line-picture2" />
           <p>
