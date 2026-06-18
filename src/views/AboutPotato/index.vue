@@ -11,7 +11,7 @@ const gameMenu: {
   size?: string;
   disable?: boolean;
 }[] = [
-  { label: "あなたにおすすめの\nお芋診断", link: "/finder" },
+  { label: "あなたにぴったりの\nお芋診断", link: "/finder" },
   { label: "整備中", link: "/test", disable: true, backgroundColor: "gray" },
   { label: "整備中", link: "/test", disable: true, backgroundColor: "gray" },
 ];
@@ -82,7 +82,6 @@ const startGame = async (link: string) => {
 }
 
 .whole-wrapper.zoomout {
-  transform: scale(3);
   opacity: 0;
 }
 
@@ -166,12 +165,13 @@ const startGame = async (link: string) => {
 }
 
 section {
+  transform: translateY(0);
   transition: ease 0.3s;
 }
 
 section.fadeout {
-  opacity: 0;
-  transition: ease 0.3s;
+  transform: translateY(-100vh);
+  transition: ease 0.5s;
 }
 
 @media (max-width: 768px) {

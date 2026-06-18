@@ -4,6 +4,7 @@ import Activity from "../views/Activity.vue";
 import Faq from "../views/Faq.vue";
 import LineStamp from "../views/LineStamp.vue";
 import AboutPotato from "../views/AboutPotato/index.vue";
+import Finder from "../views/AboutPotato/Finder.vue";
 
 const routes = [
   { path: "/", name: "Home", component: Home },
@@ -14,6 +15,11 @@ const routes = [
     path: "/about-potato",
     name: "AboutPotato",
     component: AboutPotato,
+  },
+  {
+    path: "/finder",
+    name: "Finder",
+    component: Finder,
   },
 ];
 
