@@ -21,6 +21,11 @@
   display: flex;
   align-items: center;
   text-decoration: none;
+  transition: ease 0.3s;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 .icon-logo {
   width: 80px;

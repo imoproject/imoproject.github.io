@@ -1,6 +1,6 @@
 <template>
   <div
-    @click="nextQuestion"
+    @click="nextQuestion(props.to)"
     class="option"
     :style="{
       backgroundColor: props.backgroundColor || '#f4de6a',
@@ -47,6 +47,8 @@ const emit = defineEmits<{
 }>();
 
 const nextQuestion = (to: number) => {
-  emit("nextQuestion", to);
+  if (to < 100) {
+    emit("nextQuestion", to);
+  }
 };
 </script>

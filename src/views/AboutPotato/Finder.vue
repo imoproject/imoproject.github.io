@@ -33,11 +33,22 @@ const finderStart = () => {
 const nextQuestion = (to: number) => {
   status.value = to;
 };
+
+const visible = ref(true);
+const isFading = ref(false);
+
+const hide = () => {
+  isFading.value = true;
+};
 </script>
 
 <template>
   <section>
-    <div class="screen" :class="{ hide: status !== 0 }">
+    <div
+      class="screen"
+      :class="{ hide: isFading }"
+      @animationend="visible = false"
+    >
       <div class="title-wrapper">
         <div class="pre-title">あなたにぴったりの</div>
         <img class="title" src="../../assets/images/finder-title.png" />

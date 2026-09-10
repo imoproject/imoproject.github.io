@@ -8,6 +8,7 @@
         :label="item.label"
         :fontColor="item.fontColor"
         :backgroundColor="item.backgroundColor"
+        :to="item.to"
         @nextQuestion="nextQuestion"
       />
     </div>
@@ -20,6 +21,12 @@
   src: url("../assets/fonts/BestTen-DOT.otf"); /*fontがあるパスを書いて、formatを指定*/
   font-display: swap; /*ダウンロード状況に応じてフォントの表示を変える */
 }
+.finder-question {
+  display: flex;
+  flex-direction: column;
+  height: 60vh;
+  justify-content: space-around;
+}
 
 .question {
   font-family: "dot";
@@ -30,7 +37,7 @@
 }
 .options-wrapper {
   display: flex;
-  width: 80%;
+  width: 100%;
   justify-content: space-around;
 }
 </style>
