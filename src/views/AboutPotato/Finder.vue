@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import FinderQuestion from "../../components/FinderQuestion.vue";
 
 const questions: {
@@ -15,15 +15,80 @@ const questions: {
 }[] = [
   {
     id: 1,
-    question: "さつまいもを食べたことはありますか？",
+    question: "焼き芋で好きなのは？",
     options: [
-      { label: "ある！", fontColor: "white", backgroundColor: "purple", to: 2 },
-      { label: "ない", to: 3 },
+      { label: "ねっとり系", fontColor: "white", backgroundColor: "purple", to: 2 },
+      { label: "ホクホク系", to: 3 },
+    ],
+  },
+  {
+    id: 2,
+    question: "好きな色は？",
+    options: [
+      { label: "王道の黄色", fontColor: "white", backgroundColor: "purple", to: 4 },
+      { label: "紫やオレンジ", to: 5 },
+    ],
+  },
+  {
+    id: 3,
+    question: "さつまいもを食べるときは？",
+    options: [
+      { label: "焼き芋！", fontColor: "white", backgroundColor: "purple", to: 6 },
+      { label: "料理に！", to: 100 },
+    ],
+  },
+  {
+    id: 4,
+    question: "どっちが大事？",
+    options: [
+      { label: "甘さ", fontColor: "white", backgroundColor: "purple", to: 7 },
+      { label: "舌触り", to: 8 },
+    ],
+  },
+  {
+    id: 5,
+    question: "究極の二択！",
+    options: [
+      { label: "紫色", fontColor: "white", backgroundColor: "purple", to: 101 },
+      { label: "オレンジ色", to: 102 },
+    ],
+  },
+  {
+    id: 6,
+    question: "ホクホクの中でも...",
+    options: [
+      { label: "昔ながらのホクホク感", fontColor: "white", backgroundColor: "purple", to: 103 },
+      { label: "栗のような新感覚", to: 104 },
+    ],
+  },
+  {
+    id: 7,
+    question: "食べる時期は？",
+    options: [
+      { label: "掘り立てを秋に", fontColor: "white", backgroundColor: "purple", to: 105 },
+      { label: "熟成して冬に", to: 9 },
+    ],
+  },
+  {
+    id: 8,
+    question: "食べ方を細かく！",
+    options: [
+      { label: "圧倒的な滑らかさ、上品な甘さ", fontColor: "white", backgroundColor: "purple", to: 106 },
+      { label: "しっとりした食感、小ぶりな食べきりサイズ", to: 107 },
+      { label: "しっとりした食感、冷やしても美味しい！", to: 108 },
+    ],
+  },
+  {
+    id: 9,
+    question: "甘さのこだわりも...",
+    options: [
+      { label: "すっきりした甘さ", fontColor: "white", backgroundColor: "purple", to: 109 },
+      { label: "濃厚な甘さと強いねっとり感", to: 110 },
     ],
   },
 ];
 
-//0はスタート前、1以上は上の設問のidに一致
+//0はスタート前、1以上は上の設問のid、100以上は結果のidに一致
 const status = ref(0);
 
 const finderStart = () => {
@@ -33,6 +98,10 @@ const finderStart = () => {
 const nextQuestion = (to: number) => {
   status.value = to;
 };
+
+const currentQuestion = computed(() =>
+  questions.find((question) => question.id === status.value),
+);
 
 const visible = ref(true);
 const isFading = ref(false);
@@ -49,24 +118,24 @@ const hide = () => {
       class="screen"
       :class="{ hide: isFading }"
       @animationend="visible = false"
+      v-show="status === 0"
     >
-      <div class="title-wrapper">
-        <div class="pre-title">あなたにぴったりの</div>
+      <div class="title-wrapper" >
+        <div class="pre-title" >あなたにぴったりの</div>
         <img class="title" src="../../assets/images/finder-title.png" />
       </div>
-      <button class="finder-start" @click="finderStart">スタート</button>
+      <button class="finder-start" @click="finderStart" >スタート</button>
     </div>
-    <div class="screen">
+    <Transition name="finder-question" mode="out-in">
       <FinderQuestion
-        v-for="(item, index) in questions"
-        :id="index"
-        :key="item.id"
-        :question="item.question"
-        :options="item.options"
-        :class="{ hide: status !== item.id }"
+        v-if="currentQuestion"
+        :key="currentQuestion.id"
+        :id="currentQuestion.id"
+        :question="currentQuestion.question"
+        :options="currentQuestion.options"
         @nextQuestion="nextQuestion"
       />
-    </div>
+    </Transition>
   </section>
 </template>
 
@@ -99,6 +168,14 @@ const hide = () => {
     opacity: 0;
     transform: translateY(-30px);
   }
+}
+
+.finder-question-enter-active {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.finder-question-leave-active {
+  animation: fadeOutUp 0.8s ease-out forwards;
 }
 
 section {
