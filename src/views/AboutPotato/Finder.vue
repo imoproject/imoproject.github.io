@@ -58,6 +58,7 @@ const hide = () => {
     <div class="screen">
       <FinderQuestion
         v-for="(item, index) in questions"
+        :id="index"
         :key="item.id"
         :question="item.question"
         :options="item.options"

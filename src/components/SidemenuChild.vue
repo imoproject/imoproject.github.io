@@ -100,6 +100,6 @@ const props = defineProps<{
   link: string;
   icon: string;
   backgroundColor?: string;
-  size?: string;
+  size?: number | undefined;
 }>();
 </script>
