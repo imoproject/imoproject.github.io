@@ -164,7 +164,7 @@ span {
   }
 .menu-wrapper {
   transition: all 0.3s ease;
-  z-index:10;
+  z-index:5;
 }
 .hamburger-menu {
   display: none;
