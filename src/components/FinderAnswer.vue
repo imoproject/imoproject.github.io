@@ -1,16 +1,22 @@
 <template>
-  <div class="finder-question">
-    <div class="question">{{ props.question }}</div>
+  <div
+    class="finder-answer"
+    :style="{
+      backgroundColor: props.backgroundColor || 'darkred',
+      color: props.color || 'white',
+    }"
+  >
+    <div class="pre-title">あなたにぴったりの芋は...</div>
+    <div
+      class="question"
+      :style="{
+        color: props.color || 'white',
+      }"
+    >
+      {{ props.title }}
+    </div>
     <div class="options-wrapper">
-      <FinderQuestionOption
-        v-for="(item, index) in options"
-        :key="index"
-        :label="item.label"
-        :fontColor="item.fontColor"
-        :backgroundColor="item.backgroundColor"
-        :to="item.to"
-        @nextQuestion="nextQuestion"
-      />
+      <div v-for="(item, index) in characters" :key="index">{{ item }}</div>
     </div>
   </div>
 </template>
@@ -21,11 +27,12 @@
   src: url("../assets/fonts/BestTen-DOT.otf"); /*fontがあるパスを書いて、formatを指定*/
   font-display: swap; /*ダウンロード状況に応じてフォントの表示を変える */
 }
-.finder-question {
+.finder-answer {
   display: flex;
   flex-direction: column;
-  height: 60vh;
+  align-items: center;
   justify-content: space-around;
+  padding: 3rem;
 }
 
 .question {
@@ -36,24 +43,25 @@
 }
 .options-wrapper {
   display: flex;
- flex-wrap: wrap;
   width: 100%;
   justify-content: space-around;
 }
 
 @media screen and (max-width: 720px) {
-  .finder-question {
-    height: 80vh;
-  }
-  .question {
+.finder-answer {
+  height: 50vh;
+  width: 70vw;
+}
+.question {
   font-size: 1.5rem;
 }
 }
 @media screen and (min-width: 721px) {
-  .finder-question {
-    height: 60vh;
-  }
-  .question {
+ .finder-answer {
+  height: 50vh;
+    width: 50vw;
+}
+.question {
   font-size: 3rem;
 }
 }
@@ -64,13 +72,10 @@ import FinderQuestionOption from "../components/FinderQuestionOption.vue";
 const props = defineProps<{
   // ここに必要なpropsの型を定義
   id: number;
-  question: string;
-  options: {
-    label: string;
-    fontColor?: string;
-    backgroundColor?: string;
-    to: number;
-  }[];
+  title: string;
+  characters: string[];
+  color?: string;
+  backgroundColor?: string;
 }>();
 
 const emit = defineEmits<{

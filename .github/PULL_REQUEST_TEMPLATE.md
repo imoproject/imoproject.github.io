@@ -1,6 +1,5 @@
 ## 🔍 背景・目的 / Purpose
 
-
 ## 🚨 レビューの緊急度 / Review Urgency
 
 - [ ] 🔴 **高（至急）**：今日中にレビューが必要です
@@ -11,15 +10,12 @@
 
 ## 📝 変更内容 / What I Did
 
-
 ## ✅ 動作確認 / How to Test
-
 
 ## 🧪 テスト項目 / Test Cases
 
-
 ## ⛏ 補足 / Notes
 
-
 ## 📎 関連リンク / Related Issues
+
 - issue等を紐づけてください

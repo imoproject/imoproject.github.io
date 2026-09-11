@@ -19,9 +19,11 @@
 }
 
 .option {
+  width: fit-content;
+  min-width:fit-content;
   font-family: "dot";
+  margin: 1rem;
   padding: 3rem;
-  font-size: 3rem;
   font-weight: 100;
   box-shadow: 0 10px 0px rgba(75, 27, 34, 1);
   border-radius: 50%;
@@ -29,6 +31,16 @@
   cursor: pointer;
   &:hover {
     transform: scale(1.1);
+  }
+}
+@media screen and (max-width: 720px) {
+ .option {
+  font-size: 1.5rem;
+}
+}
+@media screen and (min-width: 721px) {
+  .option {
+    font-size: 3rem;
   }
 }
 </style>
@@ -47,8 +59,6 @@ const emit = defineEmits<{
 }>();
 
 const nextQuestion = (to: number) => {
-  if (to < 100) {
-    emit("nextQuestion", to);
-  }
+  emit("nextQuestion", to);
 };
 </script>
