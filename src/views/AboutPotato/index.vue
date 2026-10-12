@@ -1,4 +1,12 @@
 <script setup lang="ts">
+import { computed } from "vue";
+import { useSpreadsheet } from "../../compasables/useSpreadsheet";
+
+const { spreadsheetAboutPotato } = useSpreadsheet();
+const contents = computed(
+  () => spreadsheetAboutPotato.value|| {}
+);
+
 import GamemenuItem from "../../components/GamemenuItem.vue";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
@@ -30,9 +38,16 @@ const startGame = async (link: string) => {
 
 <template>
   <section :class="{ fadeout: isStarting }">
-    <h1>About Potato</h1>
-    <h2>芋について<br />もっと知りたい方へ</h2>
-    <p>まだまだ整備中ですが良かったら遊んでいってね！</p>
+     <div class="wrapper" 
+        v-for="(item, index) in contents" :key="index">
+      <h1>{{ item.subtitle }}</h1>
+      <h2>
+        {{ item.title }}
+      </h2>
+      <p>
+        {{ item.content }}
+      </p>
+    </div>
     <div style="display: flex; flex-direction: column; align-items: center">
       <div class="whole-wrapper" :class="{ zoomout: isStarting }">
         <div class="game left">
