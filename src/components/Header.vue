@@ -1,48 +1,17 @@
 <template>
-  <div class="header-wrapper">
-    <router-link to="/" class="logo-container" id="home">
-      <img src="../assets/images/imologo.png" class="imologo" />
+  <div class="header-wrapper horizonal">
+    <router-link to="/" class="horizonal" id="home">
+      <img :src="logoUrl" class="imologo" />
       <div class="title">{{ orgName }}</div>
     </router-link>
-    <div class="sns-wrapper-pc">
-      <div class="horizonal">
-        <a
-          href="https://www.instagram.com/imoproject.ut/"
-          target="_blank"
-          class="sns-container"
-        >
-          <img src="../assets/images/instagram.svg" class="sns-logo" />
-          <div class="arrow">
-            Instagram
-            <div class="arrow-right"></div>
-          </div>
-        </a>
-        <a
-          href="https://x.com/imoproject_ut"
-          target="_blank"
-          class="sns-container"
-        >
-          <img src="../assets/images/X.png" class="sns-logo" />
-          <div class="arrow">
-            X
-            <div class="arrow-right"></div>
-          </div>
-        </a>
+    <div class="horizonal">
+      <div class="horizonal snss">
+        <div v-for="(sns, name) in SNSs" :key="name" class="horizonal">
+          <a :href="sns.url" target="_blank" class="horizonal snscontainer">
+            <img :src="sns.img_url" class="snslogo" />
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="sns-wrapper-sp">
-      <a
-        href="https://www.instagram.com/imoproject.ut/"
-        target="_blank"
-        class="sns-container"
-        ><img src="../assets/images/instagram.svg" class="sns-logo"
-      /></a>
-      <a
-        href="https://x.com/imoproject_ut"
-        target="_blank"
-        class="sns-container"
-        ><img src="../assets/images/X.png" class="sns-logo"
-      /></a>
 
       <div
         class="btn-trigger"
@@ -58,17 +27,19 @@
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use "../assets/css/breakpoints" as *;
+
 /* =========================
-   Header
+   Header全体
 ========================= */
 .header-wrapper {
   position: fixed;
   top: 0;
   width: 100%;
   box-sizing: border-box;
+  padding: 10px 20px;
 
-  display: flex;
   justify-content: space-between;
 
   background-color: #fffafa;
@@ -77,131 +48,75 @@
   border-color: #ad1a45;
 
   z-index: 10;
+
+  @include pc {
+    height: 10vh;
+    border-width: 5px 0;
+  }
+
+  @include sp {
+    height: 10vh;
+    border-width: 5px 0;
+  }
 }
 
 /* =========================
    Logo
 ========================= */
-.logo-container {
-  display: flex;
-  align-items: center;
-  font-size: 20px;
+.title {
+  font-family: "irohamaru", sans-serif;
+  font-weight: bold;
+  color: #ad1a45;
+  @include pc {
+    font-size: 24px;
+  }
+
+  @include sp {
+    font-size: 20px;
+  }
 }
 
 .imologo {
-  width: 40px;
-  margin-right: 10px;
-}
+  @include pc {
+    width: 40px;
+    margin-right: 10px;
+  }
 
-.title {
-  font-family: "irohamaru", sans-serif;
-  font-size: 24px;
-  font-weight: bold;
-  color: #ad1a45;
+  @include sp {
+    width: 30px;
+    margin-right: 10px;
+  }
 }
 
 /* =========================
    SNS
 ========================= */
-.sns-container {
-  display: flex;
-  align-items: center;
+.snss {
+  margin-right: 20px;
 }
 
-.sns-container:hover {
+.snscontainer:hover {
   cursor: pointer;
 }
 
-.sns-logo {
-  width: 30px;
-  margin-right: 10px;
-}
-
-.horizonal {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  width: 250px;
-  margin-top: 5px;
-}
-
-.arrow {
-  display: flex;
-  align-items: center;
-
-  color: black;
-}
-
-.arrow-right {
-  width: 0;
-  height: 0;
-
-  margin-left: 10px;
-
-  border-style: solid;
-  border-width: 8px;
-  border-color: transparent transparent transparent black;
-}
-
-/* =========================
-   Link
-========================= */
-a {
-  text-decoration: none;
-}
-
-/* =========================
-   Mobile
-========================= */
-@media screen and (max-width: 720px) {
-  .header-wrapper {
-    padding: 12px 18px;
-    border-width: 5px 0;
-    height: 70px;
-    width: 100vw;
+.snslogo {
+  @include pc {
+    width: 40px;
+    margin: 0 5px;
   }
 
-  .logo-container {
-    font-size: 15px;
-  }
-
-  .imologo {
+  @include sp {
     width: 30px;
-    margin-right: 7px;
-  }
-
-  .sns-wrapper-pc {
-    display: none;
-  }
-
-  .sns-wrapper-sp {
-    display: flex;
-    align-items: center;
+    margin: 0 5px;
   }
 }
 
 /* =========================
-   Desktop
+   toggle
 ========================= */
 @media screen and (min-width: 721px) {
-  .header-wrapper {
-    border-width: 10px 0;
-    padding: 20px 40px;
-    height: 110px;
-  }
-
-  .sns-wrapper-pc {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    width: 250px;
-    height: 50px;
-  }
-
-  .sns-wrapper-sp {
-    display: none;
+  .btn-trigger {
+    display: none !important;
   }
 }
 
@@ -253,8 +168,24 @@ import { computed } from "vue";
 import { useSpreadsheet } from "../compasables/useSpreadsheet";
 
 const { spreadsheetCommonMain } = useSpreadsheet();
+const { spreadsheetCommonSNS } = useSpreadsheet();
 const orgName = computed(
   () => spreadsheetCommonMain.value.orgname?.label || "IMOPROJECT",
+);
+const logoUrl = computed(
+  () =>
+    spreadsheetCommonMain.value.logo_url?.label ||
+    "../assets/images/imologo.png",
+);
+const SNSs = computed(() => spreadsheetCommonSNS.value || []);
+
+const instagramLogoUrl = computed(
+  () =>
+    spreadsheetCommonSNS.value.instagram?.img_url ||
+    "../assets/images/instagram-logo.png",
+);
+const XLogoUrl = computed(
+  () => spreadsheetCommonSNS.value.X?.img_url || "../assets/images/x-logo.png",
 );
 
 const toggleMenu = () => {
@@ -269,4 +200,3 @@ const emit = defineEmits<{
   toggleMenu: [];
 }>();
 </script>
-

@@ -49,3 +49,15 @@ p {
   display: flex;
   justify-content: center;
 }
+
+/* =========================
+   Link
+========================= */
+a {
+  text-decoration: none;
+}
+
+.horizonal {
+  display: flex;
+  align-items: center;
+}
