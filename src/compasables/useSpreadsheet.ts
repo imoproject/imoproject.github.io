@@ -40,6 +40,9 @@ export interface SidemenuRow extends SpreadsheetRow {
 	label: string;
 	path: string;
 	img_url: string;
+	backgroundColor: string;
+	size: string;
+	note: string;
 }
 
 export interface HomeRow extends SpreadsheetRow {

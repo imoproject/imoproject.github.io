@@ -1,53 +1,15 @@
 <script setup lang="ts">
 import SidemenuChild from "./SidemenuChild.vue";
-import logo from "../assets/images/imologo2.svg";
-import imo1 from "../assets/images/imo1.png";
-import imo2 from "../assets/images/imo2.png";
-import lineStamp from "../assets/images/line-stamp.png";
 import { computed } from "vue";
 import { useSpreadsheet } from "../compasables/useSpreadsheet";
 
 const { spreadsheetCommonMain } = useSpreadsheet();
+const { spreadsheetCommonSidemenu } = useSpreadsheet();
+const menu = computed(() => spreadsheetCommonMain.value.menu?.label || "");
 const menusentence = computed(
   () => spreadsheetCommonMain.value.menu_content?.label || "",
 );
-
-const menuItems: {
-  label: string;
-  link: string;
-  icon: string;
-  backgroundColor?: string;
-  size?: number;
-}[] = [
-  {
-    label: "HOME",
-    link: "/",
-    icon: logo,
-    backgroundColor: "#ad1a45",
-    size: 80,
-  },
-  {
-    label: "活動内容",
-    link: "/activity",
-    icon: imo1,
-  },
-  {
-    label: "よくあるご質問\n入会希望の方へ",
-    link: "/faq",
-    icon: imo2,
-  },
-  {
-    label: "芋について\nもっと知りたい方へ",
-    link: "/about-potato",
-    icon: imo1,
-  },
-  {
-    label: "LINEスタンプ",
-    link: "/line-stamp",
-    icon: lineStamp,
-    backgroundColor: "#f6d893",
-  },
-];
+const menus = computed(() => spreadsheetCommonSidemenu.value || {});
 
 const toggleMenu = () => {
   emit("toggleMenu");
@@ -65,90 +27,34 @@ const emit = defineEmits<{
 <template>
   <div class="menu-wrapper" :class="{ show: open }">
     <div class="menu-upper">
-      <div class="MENU">
-        <span class="num1">M</span><span class="num2">E</span
-        ><span class="num3">N</span><span class="num4">U</span>
+      <div class="MENU horizonal">
+        {{ menu }}
       </div>
-      <div class="menu-detail">
-        {{ menusentence }}
+      <div class="menu-detail horizonal">
+        <p>{{ menusentence }}</p>
       </div>
     </div>
-    <div class="menu-lower">
+    <div class="menu-lower vertical">
       <SidemenuChild
-        v-for="(item, index) in menuItems"
-        :key="item.label"
+        v-for="(item, index) in menus"
+        :key="index"
         :label="item.label"
-        :link="item.link"
-        :icon="item.icon"
+        :link="item.path"
+        :icon="item.img_url"
         :backgroundColor="item.backgroundColor"
-        :size="item.size"
+        :size="item.size ? Number(item.size) : undefined"
         @click="toggleMenu"
       />
     </div>
   </div>
 </template>
 
-<style>
-/* 上部MENUの文字部分*/
-.MENU {
-  background-color: #ad1a45;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 35px;
-}
-.MENU span {
-  font-size: 18px;
-  font-weight: bold;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fffafa;
-  width: 20px;
-  left: 110px;
-  top: 0;
-  transform-origin: bottom center;
-}
-.num1 {
-  transform: rotate(-9deg) translateX(-10px) translateY(-19px);
-}
-.num2 {
-  transform: rotate(-5deg) translateX(-2px) translateY(-19px);
-}
-.num3 {
-  transform: rotate(5deg) translateX(0px) translateY(-19px);
-}
-.num4 {
-  transform: rotate(12deg) translateX(3px) translateY(-17px);
-}
-/*サブタイトル部分*/
-.menu-detail {
-  color: #75464c;
-  background-color: #c48696;
-  padding: 10px;
-  width: calc(100% - 20px);
-  border-radius: 0 0 14px 14px;
-  text-align: center;
-  white-space: pre-line;
-}
-/*上部まとめ*/
-.menu-upper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-  width: 100%;
-}
-/*下部まとめ*/
-.menu-lower {
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  margin-top: 10px;
-}
-/*全体*/
+<style scoped lang="scss">
+@use "../assets/css/breakpoints" as *;
+
+/* =========================
+   Menu全体
+========================= */
 .menu-wrapper {
   width: 300px;
   transition: all 0.3s ease;
@@ -158,24 +64,64 @@ const emit = defineEmits<{
   align-items: center;
   position: fixed;
   left: 0;
-  top: 110px;
+  @include pc {
+    top: 10vh; //ここはHeaderのheighyに合わせる
+    height: 90vh;
+  }
+  @include sp {
+    top: 10vh; //ここはHeaderのheighyに合わせる
+    background-color: rgba(246, 242, 231, 0.7);
+    height: 90vh;
+  }
 }
-.hamburger-menu {
-  display: none;
-}
-@media screen and (max-width: 720px) {
+
+@include sp {
+  //動きの部分のみ切り出し
   .menu-wrapper {
     transform: translateX(-100%);
-    position: fixed;
-    top: 70px;
   }
   .menu-wrapper.show {
     transform: translateX(0);
-    background-color: rgba(246, 242, 231, 0.7);
-    height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 70px;
   }
+}
+
+/* =========================
+   上の部分
+========================= */
+.MENU {
+  background-color: #ad1a45;
+  width: 100%;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fffafa;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+.menu-detail {
+  color: #75464c;
+  background-color: #c48696;
+  padding: 3px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 0 0 14px 14px;
+  font-size: 16px;
+}
+/*上部まとめ*/
+.menu-upper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+  flex-shrink: 0;
+}
+/* =========================
+   下の部分
+========================= */
+
+.menu-lower {
+  width: 90%;
+  flex:1;
+  justify-content: space-around;
 }
 </style>
