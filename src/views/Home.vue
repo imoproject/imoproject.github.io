@@ -24,23 +24,5 @@ const contents = computed(
 </script>
 
 <style scoped lang="scss">
-@media screen and (max-width: 720px) {
-  section {
-    margin-bottom: 0 !important;
-    overflow: hidden;
-  }
-  .imo-home2 {
-    width: 60%;
-    transform: translateY(30px);
-  }
-}
-@media screen and (min-width: 721px) {
-  .imo-home2 {
-    width: 250px;
-    position: fixed;
-    bottom: -30px;
-    right: 3%;
-    transform: rotateY(180deg);
-  }
-}
+
 </style>
