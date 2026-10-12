@@ -145,11 +145,29 @@ function loadSpreadsheet(): Promise<void> {
 			fetchSheet<AboutPotatoRow>(spreadsheetUrls.about_potato),
 			fetchSheet<LineRow>(spreadsheetUrls.line),
 		])
-			.then(([commonMain, sns, sidemenu]) => {
+			.then(
+				([
+					commonMain,
+					sns,
+					sidemenu,
+					home,
+					activity,
+					faq,
+					faqQAndA,
+					aboutPotato,
+					line,
+				]) => {
 				spreadsheetCommonMain.value = commonMain;
 				spreadsheetCommonSNS.value = sns;
 				spreadsheetCommonSidemenu.value = sidemenu;
-			})
+				spreadsheetHome.value = home;
+				spreadsheetActivity.value = activity;
+				spreadsheetFaq.value = faq;
+				spreadsheetFaqQAndA.value = faqQAndA;
+				spreadsheetAboutPotato.value = aboutPotato;
+				spreadsheetLine.value = line;
+				},
+			)
 			.catch((cause: unknown) => {
 				error.value = cause instanceof Error ? cause.message : String(cause);
 				loadPromise = undefined;

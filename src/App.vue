@@ -19,16 +19,19 @@ const toggleMenu = () => {
 </script>
 
 <style scoped lang="scss">
-@media screen and (min-width: 721px) {
+@use "../src/assets/css/breakpoints" as *;
+
+@include pc {
   .router-view {
-    margin-left: 350px;
-    margin-top: 150px;
-    padding: 20px;
+    margin-left: 300px;
+    margin-top: 10vh;
+    padding: 5vh 5vw;
   }
 }
-@media screen and (max-width: 720px) {
+@include sp {
   .router-view {
-    margin: 100px 10%;
+    margin-top: 10vh;
+    padding: 5vh 5vw;
   }
 }
 </style>
