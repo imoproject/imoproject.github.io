@@ -16,6 +16,7 @@ const spreadsheetUrls = {
     faq_qanda: `${spreadsheetBaseUrl}?gid=1041162013&single=true&output=csv`,
     about_potato: `${spreadsheetBaseUrl}?gid=692555755&single=true&output=csv`,
     line: `${spreadsheetBaseUrl}?gid=880073552&single=true&output=csv`,
+	line_stamp: `${spreadsheetBaseUrl}?gid=193264437&single=true&output=csv`,
 };
 
 //それぞれのスプレッドシートの行の型を定義
@@ -88,6 +89,13 @@ export interface LineRow extends SpreadsheetRow {
     note: string;
 }
 
+export interface LineStampRow extends SpreadsheetRow {
+	label: string;
+	url: string;
+	img_url: string;
+	note: string;
+}
+
 export type SpreadsheetSheet<Row extends SpreadsheetRow> = Record<string, Row>;
 
 const spreadsheetCommonMain = ref<SpreadsheetSheet<CommonMainRow>>({});
@@ -99,6 +107,7 @@ const spreadsheetFaq = ref<SpreadsheetSheet<FaqRow>>({});
 const spreadsheetFaqQAndA = ref<SpreadsheetSheet<FaqQAndARow>>({});
 const spreadsheetAboutPotato = ref<SpreadsheetSheet<AboutPotatoRow>>({});
 const spreadsheetLine = ref<SpreadsheetSheet<LineRow>>({});
+const spreadsheetLineStamp = ref<SpreadsheetSheet<LineStampRow>>({});
 const loading = ref(false);
 const error = ref<string | null>(null);
 let loadPromise: Promise<void> | undefined;
@@ -145,6 +154,7 @@ function loadSpreadsheet(): Promise<void> {
 			fetchSheet<FaqQAndARow>(spreadsheetUrls.faq_qanda),
 			fetchSheet<AboutPotatoRow>(spreadsheetUrls.about_potato),
 			fetchSheet<LineRow>(spreadsheetUrls.line),
+			fetchSheet<LineStampRow>(spreadsheetUrls.line_stamp),
 		])
 			.then(
 				([
@@ -157,6 +167,7 @@ function loadSpreadsheet(): Promise<void> {
 					faqQAndA,
 					aboutPotato,
 					line,
+					lineStamp,
 				]) => {
 				spreadsheetCommonMain.value = commonMain;
 				spreadsheetCommonSNS.value = sns;
@@ -167,6 +178,7 @@ function loadSpreadsheet(): Promise<void> {
 				spreadsheetFaqQAndA.value = faqQAndA;
 				spreadsheetAboutPotato.value = aboutPotato;
 				spreadsheetLine.value = line;
+				spreadsheetLineStamp.value = lineStamp;
 				},
 			)
 			.catch((cause: unknown) => {
@@ -197,6 +209,7 @@ export function useSpreadsheet() {
         spreadsheetFaqQAndA: readonly(spreadsheetFaqQAndA),
         spreadsheetAboutPotato: readonly(spreadsheetAboutPotato),
         spreadsheetLine: readonly(spreadsheetLine),
+		spreadsheetLineStamp: readonly(spreadsheetLineStamp),
 		loading: readonly(loading),
 		error: readonly(error),
 	};

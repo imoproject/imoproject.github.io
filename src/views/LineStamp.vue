@@ -1,39 +1,20 @@
 <template>
   <section>
-    <div class="wrapper">
-      <h1>Stamp</h1>
-      <h2>LINEスタンプ</h2>
+    <div class="wrapper" v-for="(item, index) in contents" :key="index">
+      <h1>{{ item.subtitle }}</h1>
+      <h2>
+        {{ item.title }}
+      </h2>
       <p>
-        IMOPROJECTでは、LINEスタンプを販売しております。<br />
-        おいもちゃんとお友達の猫ちゃんは、<br />
-        IMOPROJECTオリジナルキャラクターです！<br />
-        ほっこり芋ライフを、スタンプでも！ 可愛い仲間が、あなたのトークを<br />
-        もっとホクホクにしてくれるはず…！ お買い求めはこちらから🎉<br />
-        <br />
+        {{ item.content }}
       </p>
     </div>
-    <div class="wrapper">
-      <a
-        href="https://store.line.me/stickershop/product/24031211/ja"
-        target="_blank"
-        ><div class="line-wrapper">
-          <img src="../assets/images/line1.png" class="line-picture2" />
+    <div class="wrapper" v-for="(item, index) in linestamps" :key="index">
+      <a :href="item.url" target="_blank"
+        ><div class="line-wrapper horizonal">
+          <img :src="item.img_url" class="line-picture2" />
           <p>
-            のんびり屋の<br class="only-sp" />おいもちゃんと<br
-              class="only-sp"
-            />猫ちゃん
-          </p>
-        </div></a
-      >
-      <a
-        href=" https://store.line.me/stickershop/product/25743771/ja"
-        target="_blank"
-        ><div class="line-wrapper">
-          <img src="../assets/images/line2.png" class="line-picture2" />
-          <p>
-            のんびり屋の<br class="only-sp" />おいもちゃんと<br
-              class="only-sp"
-            />猫ちゃん2
+            {{ item.label }}
           </p>
         </div></a
       >
@@ -41,28 +22,23 @@
   </section>
 </template>
 
+<script setup lang="ts">
+import { computed } from "vue";
+import { useSpreadsheet } from "../compasables/useSpreadsheet";
+
+const { spreadsheetLine } = useSpreadsheet();
+const { spreadsheetLineStamp } = useSpreadsheet();
+const contents = computed(() => spreadsheetLine.value || {});
+const linestamps = computed(() => spreadsheetLineStamp.value || {});
+</script>
+
 <style scoped lang="scss">
 .line-wrapper {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  padding: 25px;
+  margin: 20px;
+  padding: 20px;
   background-color: white;
   border-radius: 10px;
   cursor: pointer;
-}
-@media screen and (min-width: 721px) {
-  .line-wrapper {
-    width: 100%;
-  }
-  .only-sp {
-    display: none;
-  }
-}
-@media screen and (max-width: 720px) {
-  .line-wrapper {
-    width: 90%;
-  }
 }
 .line-wrapper img {
   width: 100px;
@@ -72,14 +48,5 @@
 .line-wrapper p {
   font-size: 1rem;
   color: #333;
-}
-a {
-  appearance: none;
-  text-decoration: none;
-}
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 </style>
