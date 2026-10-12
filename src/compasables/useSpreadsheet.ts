@@ -56,6 +56,7 @@ export interface ActivityRow extends SpreadsheetRow {
 	title: string;
 	subtitle: string;
 	content: string;
+	img_url: string;
     note: string;
 }
 
