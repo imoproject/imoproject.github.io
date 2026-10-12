@@ -1,119 +1,68 @@
 <template>
   <section>
-    <div class="wrapper">
-      <div class="wrapper">
-        <h1>Join Us</h1>
-        <h2>入会希望の方へ</h2>
-        <p>
-          当会への入会は、原則通常イベントにご参加後となっております。<br />
-          体験のイベント情報や参加方法の詳細が知りたい方は、インスタのDMまでご連絡ください。
-        </p>
-        <h1>FAQ</h1>
-        <h2>よくあるご質問</h2>
-        <div class="small-wrapper">
-          <div class="horizontal">
+    <div class="wrapper" 
+        v-for="(item, index) in contents" :key="index">
+      <h1>{{ item.subtitle }}</h1>
+      <h2>
+        {{ item.title }}
+      </h2>
+      <p>
+        {{ item.content }}
+      </p>
+    </div>
+    <div class="wrapper" 
+        v-if="faqs.length>0">
+      <h1>{{ faqs?.[0]?.subtitle }}</h1>
+      <h2>
+        {{ faqs?.[0]?.title }}
+      </h2>
+      <p>
+        {{ faqs?.[0]?.content }}
+      </p>
+      <div class="small-wrapper" v-for="(item, index) in qAndAs" :key="index">
+          <div class="horizonal">
             <div class="Q">Q</div>
-            <p>東大生しか入れないんですか？</p>
+            <p>{{ item.question }}</p>
           </div>
-          <div class="horizontal">
+          <div class="horizonal">
             <div class="A">A</div>
             <div>
               <p>
-                大学などにより制限は設けておりません、他大学の方も大歓迎です！
+                {{ item.answer }}
               </p>
             </div>
           </div>
         </div>
-        <div class="small-wrapper">
-          <div class="horizontal">
-            <div class="Q">Q</div>
-            <p>東大生以外でも活躍できますか？</p>
-          </div>
-          <div class="horizontal">
-            <div class="A">A</div>
-            <div>
-              <p>
-                できます！実際、東京大学の学生以外で深く関わっているメンバーもたくさんいます！
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="small-wrapper">
-          <div class="horizontal">
-            <div class="Q">Q</div>
-            <p>どのような活動をおこなっていますか？</p>
-          </div>
-          <div class="horizontal">
-            <div class="A">A</div>
-            <div>
-              <p>
-                芋を喰らう会という料理会や芋ゼミという勉強会をはじめ、茨城の畑でのさつまいも栽培と収穫、<br />イベントへの出展などをおこなっています。
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="small-wrapper">
-          <div class="horizontal">
-            <div class="Q">Q</div>
-            <p>活動頻度はどれくらいですか？</p>
-          </div>
-          <div class="horizontal">
-            <div class="A">A</div>
-            <div>
-              <p>
-                活動頻度は平均して大体月に2回ほどです。基本土日に活動しております。
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="small-wrapper">
-          <div class="horizontal">
-            <div class="Q">Q</div>
-            <p>活動には原則参加しないといけないみたいな規則はありますか？</p>
-          </div>
-          <div class="horizontal">
-            <div class="A">A</div>
-            <div>
-              <p>
-                すべての活動は任意参加です。なので月に1回も入れない……という方もご安心ください。
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="small-wrapper">
-          <div class="horizontal">
-            <div class="Q">Q</div>
-            <p>
-              芋に関する知識が全くないのですが、入ってもついていけるのでしょうか？
-            </p>
-          </div>
-          <div class="horizontal">
-            <div class="A">A</div>
-            <div>
-              <p>
-                芋に関する知識が全くなくても大丈夫です！知識０で入会される方がほとんどです。<br />芋に関して語りたい、という方も大丈夫！メンバーの中にはすごく詳しい人や熱意のすごい方もいます。
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 </template>
 
-<style lang="scss">
-@media screen and (max-width: 720px) {
-  .horizontal {
-    display: flex;
+<script setup lang="ts">
+import { computed } from "vue";
+import { useSpreadsheet } from "../compasables/useSpreadsheet";
+
+const { spreadsheetFaq } = useSpreadsheet();
+const { spreadsheetFaqQAndA } = useSpreadsheet();
+const contents_b = computed(
+  () => spreadsheetFaq.value|| {}
+);
+const contents = computed(() =>
+  Object.values(spreadsheetFaq.value).filter((item) => item.key !== "faq"),
+);
+const faqs = computed(() =>
+  Object.values(spreadsheetFaq.value).filter((item) => item.key === "faq"),
+);
+const qAndAs = computed(
+  () => spreadsheetFaqQAndA.value|| {}
+);
+
+</script>
+
+<style scoped lang="scss">
+@use "../assets/css/breakpoints" as *;
+@include sp {
+  .horizonal {
     align-items: baseline;
-    justify-content: center;
-  }
-}
-@media screen and (min-width: 721px) {
-  .horizontal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 }
 
