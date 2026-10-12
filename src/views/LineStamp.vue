@@ -16,8 +16,7 @@
           <p>
             {{ item.label }}
           </p>
-        </div></a
-      >
+        </div></a>
     </div>
   </section>
 </template>
