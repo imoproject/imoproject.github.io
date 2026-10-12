@@ -3,7 +3,7 @@
     <div class="wrapper">
       <h1>About Us</h1>
       <h2>
-        <div class="english">IMOPROJECT</div>
+        <div class="english">{{ orgName }}</div>
         とは
       </h2>
       <p>
@@ -48,7 +48,15 @@
   </section>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { computed } from "vue";
+import { useSpreadsheet } from "../compasables/useSpreadsheet";
+
+const { spreadsheetCommonMain } = useSpreadsheet();
+const orgName = computed(
+  () => spreadsheetCommonMain.value.orgname?.label || "IMOPROJECT",
+);
+</script>
 
 <style scoped lang="scss">
 @media screen and (max-width: 720px) {

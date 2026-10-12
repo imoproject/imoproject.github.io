@@ -4,6 +4,13 @@ import logo from "../assets/images/imologo2.svg";
 import imo1 from "../assets/images/imo1.png";
 import imo2 from "../assets/images/imo2.png";
 import lineStamp from "../assets/images/line-stamp.png";
+import { computed } from "vue";
+import { useSpreadsheet } from "../compasables/useSpreadsheet";
+
+const { spreadsheetCommonMain } = useSpreadsheet();
+const menusentence = computed(
+  () => spreadsheetCommonMain.value.menu_content?.label || "",
+);
 
 const menuItems: {
   label: string;
@@ -63,10 +70,7 @@ const emit = defineEmits<{
         ><span class="num3">N</span><span class="num4">U</span>
       </div>
       <div class="menu-detail">
-        地中に眠る可能性をいま、<br />
-        掘り起こす。<br />
-        ホクホクな最新情報は<br />
-        こちらから！！ <br />今日もお芋を愛でています。
+        {{ menusentence }}
       </div>
     </div>
     <div class="menu-lower">
@@ -126,6 +130,7 @@ const emit = defineEmits<{
   width: calc(100% - 20px);
   border-radius: 0 0 14px 14px;
   text-align: center;
+  white-space: pre-line;
 }
 /*上部まとめ*/
 .menu-upper {

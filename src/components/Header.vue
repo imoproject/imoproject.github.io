@@ -2,10 +2,9 @@
   <div class="header-wrapper">
     <router-link to="/" class="logo-container" id="home">
       <img src="../assets/images/imologo.png" class="imologo" />
-      <div class="title">IMOPROJECT</div>
+      <div class="title">{{ orgName }}</div>
     </router-link>
     <div class="sns-wrapper-pc">
-      公式SNS
       <div class="horizonal">
         <a
           href="https://www.instagram.com/imoproject.ut/"
@@ -250,6 +249,14 @@ a {
 </style>
 
 <script setup lang="ts">
+import { computed } from "vue";
+import { useSpreadsheet } from "../compasables/useSpreadsheet";
+
+const { spreadsheetCommonMain } = useSpreadsheet();
+const orgName = computed(
+  () => spreadsheetCommonMain.value.orgname?.label || "IMOPROJECT",
+);
+
 const toggleMenu = () => {
   emit("toggleMenu");
 };
@@ -262,3 +269,4 @@ const emit = defineEmits<{
   toggleMenu: [];
 }>();
 </script>
+
